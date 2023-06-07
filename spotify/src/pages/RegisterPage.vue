@@ -107,14 +107,14 @@
         >。
       </div>
       <button class="submitBtn" @click="signup">註冊</button>
-      <div>已有帳號？<router-link to="login">登錄</router-link></div>
+      <div>已有帳號？<button @click="ii">登錄</button></div>
     </div>
   </div>
 </template>
 <script setup>
 import { ref } from "vue";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../firebase/index.js";
+import { auth } from "../firebase/index";
 
 const name = ref("");
 const email = ref("");
@@ -145,8 +145,7 @@ const signup = async () => {
   }
 };
 </script>
-
-<style scoped>
+<style>
 .signUp {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   user-select: none;
@@ -180,13 +179,6 @@ const signup = async () => {
   font-size: 16px;
   font-weight: bold;
 }
-.otherAccountBtn > button:hover {
-  transform: scale(1.05);
-}
-.otherAccountBtn img {
-  width: 8%;
-  margin-right: 15px;
-}
 .FbBtn {
   color: white;
   background: #405a93;
@@ -195,6 +187,13 @@ const signup = async () => {
 .googleBtn {
   background: white;
   color: #535353;
+}
+.otherAccountBtn > button:hover {
+  transform: scale(1.05);
+}
+.otherAccountBtn img {
+  width: 8%;
+  margin-right: 15px;
 }
 .dividingLine {
   height: 60px;
@@ -218,89 +217,33 @@ const signup = async () => {
   flex-direction: column;
   align-items: center;
 }
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  row-gap: 10px;
-}
 .formTitle {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 20px;
 }
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 500px;
+}
 #emailAdd,
 #password,
 #name,
 #birthday {
-  width: 100%;
+  width: 50%;
   height: 42px;
   border: #878787 1.5px solid;
   border-radius: 5px;
   text-indent: 10px;
   font-size: 16px;
+  background: white;
 }
 #emailAdd:hover,
 #password:hover,
 #name:hover,
 #birthday:hover {
   border: #000 1.5px solid;
-}
-.emailTitle,
-.passwordTitle,
-.nameTitle,
-.genderTitle,
-.bdTitle {
-  font-size: 14px;
-  font-weight: bold;
-}
-.showName {
-  font-size: 14px;
-}
-.chooseGender {
-  display: flex;
-  column-gap: 10px;
-}
-.chooseGender > input {
-  zoom: 1.5;
-  border: 1px;
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 30px;
-  row-gap: 30px;
-}
-
-.agreemant,
-.gatherInfo {
-  font-size: 12px;
-  margin-top: 15px;
-}
-.terms,
-.policy,
-.login {
-  color: #1db954;
-}
-.terms:hover,
-.policy:hover,
-.login:hover {
-  color: #1ed760;
-}
-
-.submitBtn {
-  width: 130px;
-  height: 55px;
-  border-radius: 50px;
-  border: none;
-  background: #1ed760;
-  font-size: 18px;
-  font-weight: bold;
-  margin: 20px;
-}
-.submitBtn:hover {
-  transform: scale(1.05);
-  background: #1fdf64;
 }
 </style>
