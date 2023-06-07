@@ -65,6 +65,7 @@ hr {
 .resetForm {
   display: flex;
   flex-direction: column;
+  place-items: center;
 }
 .btnTitle {
   font-size: 14px;
@@ -72,7 +73,7 @@ hr {
   margin-bottom: 10px;
 }
 .emailInput {
-  width: 430px;
+  width: 80%;
   height: 45px;
   border: #c3c3c3 1.5px solid;
   border-radius: 5px;
