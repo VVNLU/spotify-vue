@@ -16,7 +16,7 @@
         </button>
       </div>
       <hr class="style-two" />
-      <form @submit.prevent>
+      <form class="loginInfo" @submit.prevent>
         <div class="emailTitle">電子信箱或使用者名稱</div>
         <input
           v-model="email"
@@ -28,18 +28,25 @@
           v-model="password"
           :type="showPassword ? 'text' : 'password'"
           placeholder="密碼"
-        /><i
+        />
+        <a
           id="showEye"
-          class="material-icons"
+          class="action-label icon"
           :class="showPassword ? 'showPassword' : '!showPassword'"
-          @click="togglePassword"
-          >{{ showPassword ? "visibility" : "visibility_off" }}</i
-        >
-        <div class="remember">
-          <i class="material-icons">toggle_off</i>記住我
-        </div>
+          ><i
+            @click="togglePassword"
+            :class="
+              showPassword ? 'mdi mdi-eye-outline' : 'mdi mdi-eye-off-outline'
+            "
+          ></i>
+        </a>
+        <a class="action-label icon">
+          <i class="mdi mdi-toggle-switch-off"></i> </a
+        ><span>記住我</span>
         <button class="loginBtn" @click="login()">登入</button>
-        <nuxt-link to="/ForgetPassword" class="forgetPwd">忘記密碼？</nuxt-link>
+        <router-link to="/ForgetPassword" class="forgetPwd"
+          >忘記密碼？</router-link
+        >
       </form>
       <hr class="style-two" />
       <div>
@@ -143,15 +150,18 @@ hr.style-two {
     rgba(235, 230, 230, 0)
   );
 }
+.loginInfo {
+  display: flex;
+  place-items: center;
+  row-gap: 10px;
+}
 .emailTitle,
 .pwdTitle {
-  position: relative;
-  margin-top: 10px;
-  margin-bottom: 10px;
   font-size: 14px;
   font-weight: bold;
 }
 input {
+  position: relative;
   width: 320px;
   height: 45px;
   border-radius: 5px;
@@ -164,21 +174,14 @@ input {
 input:hover {
   border: #fff 1.5px solid;
 }
+i {
+  font-size: 30px;
+  color: gray;
+}
 #showEye {
   position: absolute;
+  bottom: -65px;
   right: 480px;
-  bottom: -70px;
-  color: #727272;
-  font-size: 30px;
-}
-.remember {
-  display: flex;
-  align-items: center;
-}
-.remember i {
-  padding: 5px;
-  color: #727272;
-  font-size: 50px;
 }
 .loginBtn {
   align-items: center;
