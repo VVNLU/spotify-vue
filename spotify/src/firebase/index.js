@@ -14,7 +14,7 @@ const firebaseConfig = {
 }; // import.meta.env = process.env,在vite將process改成meat
 
 const app = initializeApp(firebaseConfig); //初始化
-const db = getFirestore(firebaseApp); //取得資料庫
+const db = getFirestore(app); //取得資料庫
 const analytics = getAnalytics(app); //取得分析
 const auth = getAuth(); //取得身分驗證機制
 
