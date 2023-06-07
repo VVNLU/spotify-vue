@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mdi/font": "^7.2.96",
     "firebase": "^9.22.1",
     "prettier": "^2.8.8",
     "prettier-eslint": "^15.0.1",
