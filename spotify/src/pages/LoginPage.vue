@@ -42,7 +42,7 @@
       </form>
       <hr class="style-two" />
       <div>
-        未註冊帳戶？&ensp;<router-link to="/SignUp" class="signUp"
+        未註冊帳戶？&ensp;<router-link to="/register" class="register"
           >註冊 Spotify</router-link
         >
       </div>
@@ -200,16 +200,16 @@ input:hover {
   margin-top: 40px;
   color: white;
 }
-.signUp {
+.register {
   color: white;
   text-decoration: none;
 }
 .forgetPwd:hover,
-.signUp:hover {
+.register:hover {
   color: #1ed760;
   cursor: pointer;
 }
-.signUp:checked {
+.register:checked {
   border: 4px solid #ffffff;
 }
 </style>
