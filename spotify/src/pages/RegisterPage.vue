@@ -113,7 +113,7 @@
 <script setup>
 import { ref } from "vue";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "~/plugins/firebase";
+import { auth } from "../firebase/index.js";
 
 const name = ref("");
 const email = ref("");

@@ -53,7 +53,7 @@
 <script setup>
 import { ref } from "vue";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "~/plugins/firebase";
+import { auth } from "../firebase/index.js";
 
 const email = ref("");
 const password = ref("");
