@@ -2,16 +2,17 @@
   <div class="signUp">
     <div class="upperHalf">
       <nuxt-link to="/">
-        <img class="logo" src="~/assets/logo/logo_black.png" alt="spotify"
+        <img class="logo" src="../assets/logo/logo_black.png" alt="spotify"
       /></nuxt-link>
       <div class="title">免費註冊即可開始聆聽。</div>
       <div class="otherAccountBtn">
         <button class="FbBtn">
-          <img src="~/assets/logo/Facebook_white.png" alt="facebook" />
+          <img src="../assets/logo/Facebook_white.png" alt="facebook" />
           使用Facebook帳號註冊
         </button>
         <button class="googleBtn">
-          <img src="~/assets/logo/Google.png" alt="google" /> 使用Google帳號註冊
+          <img src="../assets/logo/Google.png" alt="google" />
+          使用Google帳號註冊
         </button>
       </div>
     </div>

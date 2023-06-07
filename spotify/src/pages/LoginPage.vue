@@ -4,14 +4,15 @@
       <div class="loginTitle">登入到Spotify</div>
       <div class="chooseUserBtn">
         <button>
-          <img src="~/assets/logo/Google.png" alt="Google" /> 以 Google 帳戶繼續
-        </button>
-        <button>
-          <img src="~/assets/logo/Facebook.png" alt="Facebook" />以 Facebook
+          <img src="../assets/logo/Google.png" alt="Google" /> 以 Google
           帳戶繼續
         </button>
         <button>
-          <img src="~/assets/logo/Apple.png" alt="Apple" />以 Apple 帳戶繼續
+          <img src="../assets/logo/Facebook.png" alt="Facebook" />以 Facebook
+          帳戶繼續
+        </button>
+        <button>
+          <img src="../assets/logo/Apple.png" alt="Apple" />以 Apple 帳戶繼續
         </button>
       </div>
       <hr class="style-two" />
