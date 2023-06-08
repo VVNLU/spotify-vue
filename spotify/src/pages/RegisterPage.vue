@@ -94,20 +94,22 @@
         >
       </div>
       <div class="agreemant">
-        點擊註冊即表示你同意Spotify 的<nuxt-link to="" class="terms"
-          >使用條款與條件。</nuxt-link
+        點擊註冊即表示你同意Spotify 的<router-link to="" class="terms"
+          >使用條款與條件。</router-link
         >
       </div>
       <div class="gatherInfo">
         如需詳細了解Spotify
-        如何收集、使用、分享和保護你的個人數據，請查看<nuxt-link
+        如何收集、使用、分享和保護你的個人數據，請查看<router-link
           to="/"
           class="policy"
-          >Spotify的隱私政策</nuxt-link
+          >Spotify的隱私政策</router-link
         >。
       </div>
       <button class="submitBtn" @click="signup">註冊</button>
-      <div>已有帳號？<button @click="ii">登錄</button></div>
+      <div>
+        已有帳號？<router-link to="login" class="loginRouter">登錄</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -120,12 +122,6 @@ const name = ref("");
 const email = ref("");
 const password = ref("");
 const birthday = ref("");
-
-const ii = () => {
-  window.onNuxtReady(() => {
-    window.$nuxt.$router.push("/");
-  });
-};
 
 const signup = async () => {
   try {
@@ -226,13 +222,14 @@ form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 500px;
+  width: 400px;
+  row-gap: 10px;
 }
 #emailAdd,
 #password,
 #name,
 #birthday {
-  width: 50%;
+  width: 100%;
   height: 42px;
   border: #878787 1.5px solid;
   border-radius: 5px;
@@ -245,5 +242,59 @@ form {
 #name:hover,
 #birthday:hover {
   border: #000 1.5px solid;
+}
+.emailTitle,
+.passwordTitle,
+.nameTitle,
+.genderTitle,
+.bdTitle {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.showName {
+  font-size: 14px;
+}
+.chooseGender {
+  display: flex;
+  width: 50%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 30px;
+  row-gap: 30px;
+}
+
+.agreemant,
+.gatherInfo {
+  font-size: 12px;
+  margin-top: 15px;
+}
+.terms,
+.policy,
+.loginRouter {
+  color: #1db954;
+}
+.terms:hover,
+.policy:hover,
+.loginRouter:hover {
+  color: #1ed760;
+}
+
+.submitBtn {
+  width: 130px;
+  height: 55px;
+  border-radius: 50px;
+  border: none;
+  background: #1ed760;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px;
+}
+.submitBtn:hover {
+  transform: scale(1.05);
+  background: #1fdf64;
 }
 </style>
