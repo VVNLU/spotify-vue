@@ -35,7 +35,8 @@ const btn = () => {
 .pagingBtn {
   display: inline-flex;
   place-items: center;
-  grid-column: 2/3;
+  grid-column: 1/2;
+  margin-left: 20px;
 }
 .pagingBtn i {
   display: inline-flex;
