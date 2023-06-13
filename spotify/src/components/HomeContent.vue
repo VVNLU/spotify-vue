@@ -49,6 +49,7 @@ i {
 }
 .musicBox:hover {
   background-color: #222222;
+  cursor: pointer;
 }
 .musicBox:hover i {
   display: block;
