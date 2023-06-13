@@ -44,8 +44,8 @@
   display: grid;
   grid-template-rows: repeat (25, 50px);
   background-color: #000;
-  width: 250px;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .logo {
