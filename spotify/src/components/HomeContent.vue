@@ -21,6 +21,9 @@
   background-image: linear-gradient(to bottom, #1f1f1f, #000000);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+.focus {
+  margin: 10px 0 0 25px;
+}
 .title {
   font-size: 24px;
 }
