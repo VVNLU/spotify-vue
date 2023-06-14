@@ -28,19 +28,19 @@ img {
   width: 150px;
 }
 .connect {
+  display: flex;
   grid-column: 8/8;
   color: white;
 }
 a,
-.router-link-active {
+span {
   display: inline-flex;
   text-decoration: none;
   color: white;
   margin: 15px;
   align-items: center;
 }
-a:hover,
-.router-link-active:hover {
+a:hover {
   color: #1ed760;
 }
 /* @media screen and (max-width: 700px) {
