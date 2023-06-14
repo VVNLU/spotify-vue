@@ -3,6 +3,7 @@ import HomePage from "../pages/HomePage.vue";
 import LoginPage from "../pages/LoginPage.vue";
 import RegisterPage from "../pages/RegisterPage.vue";
 import ForgetPasswordPage from "../pages/ForgetPasswordPage.vue";
+import PremiumPage from "../pages/PremiumPage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: "/forgetpassword",
       name: "forgetpassword",
       component: ForgetPasswordPage,
+    },
+    {
+      path: "/premium",
+      name: "premium",
+      component: PremiumPage,
     },
   ],
 });
