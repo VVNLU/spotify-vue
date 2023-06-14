@@ -25,7 +25,7 @@
   grid-column: 2/3;
 }
 img {
-  width: 150px;
+  width: 140px;
 }
 .connect {
   display: flex;
