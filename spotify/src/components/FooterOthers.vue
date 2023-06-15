@@ -49,7 +49,7 @@
 
 <style scoped>
 .footer {
-  height: 550px;
+  height: 500px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(6, 1fr);
