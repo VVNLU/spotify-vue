@@ -5,7 +5,7 @@
       <a class="action-label icon"> <i class="mdi mdi-chevron-right"></i></a>
     </div>
     <div class="connect">
-      <router-link to="">Premium</router-link>
+      <router-link to="premium">Premium</router-link>
       <router-link to="">支援</router-link>
       <router-link to="">下載</router-link>
       <span>｜</span>
