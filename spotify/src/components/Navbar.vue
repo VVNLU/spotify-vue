@@ -26,7 +26,8 @@
   background-color: #000;
 }
 .logo {
-  grid-column: 2/3;
+  grid-column: 1/1;
+  margin-left: 30px;
 }
 img {
   width: 140px;
