@@ -6,7 +6,7 @@
     </div>
     <div class="connect">
       <router-link to="premium">Premium</router-link>
-      <router-link to="">支援</router-link>
+      <router-link to="support">支援</router-link>
       <router-link to="">下載</router-link>
       <span>｜</span>
       <router-link to="register">註冊</router-link>
