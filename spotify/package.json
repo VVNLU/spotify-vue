@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@mdi/font": "^7.2.96",
     "firebase": "^9.22.1",
     "prettier": "^2.8.8",
