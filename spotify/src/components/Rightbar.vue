@@ -72,6 +72,9 @@ img {
 .navbarList span {
   margin-left: 15px;
 }
+.navbarList a:hover {
+  color: white;
+}
 .legalList {
   grid-row: 20/25;
 }
