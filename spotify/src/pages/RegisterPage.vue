@@ -1,9 +1,9 @@
 <template>
   <div class="signUp">
     <div class="upperHalf">
-      <nuxt-link to="/">
+      <router-link to="/">
         <img class="logo" src="../assets/logo/logo_black.png" alt="spotify"
-      /></nuxt-link>
+      /></router-link>
       <div class="title">免費註冊即可開始聆聽。</div>
       <div class="otherAccountBtn">
         <button class="FbBtn">
