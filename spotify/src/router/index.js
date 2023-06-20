@@ -5,6 +5,7 @@ import RegisterPage from "../pages/RegisterPage.vue";
 import ForgetPasswordPage from "../pages/ForgetPasswordPage.vue";
 import PremiumPage from "../pages/PremiumPage.vue";
 import SupportPage from "../pages/SupportPage.vue";
+import ProfileEdittingPage from "../pages/ProfileEdittingPage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       path: "/support",
       name: "support",
       component: SupportPage,
+    },
+    {
+      path: "/profile/edit",
+      name: "profileEdit",
+      component: ProfileEdittingPage,
     },
   ],
 });
