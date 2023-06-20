@@ -1,8 +1,8 @@
 <template>
   <div class="content">
-    <div class="focus" v-for="n in 3">
-      <div class="title">專注</div>
-      <div class="musicBox" v-for="item in data">
+    <div class="focus" v-for="group in groups">
+      <div class="title">播放清單</div>
+      <div class="musicBox" v-for="item in group">
         <a class="action-label icon"><i class="mdi mdi-play-circle"></i></a>
         <img :src="item.image" />
         <span class="musicTitle">{{ item.fullName }}</span>
@@ -13,8 +13,9 @@
 </template>
 <script setup>
 import { faker } from "@faker-js/faker";
-const generateFakerMusic = () => {
-  const box = [];
+
+const generateFakerAlbums = () => {
+  const albums = [];
   for (let i = 1; i <= 4; i++) {
     const image = faker.image.url({
       height: 200,
@@ -22,16 +23,24 @@ const generateFakerMusic = () => {
     });
     const fullName = faker.person.fullName();
     const genre = faker.music.genre();
-    box.push({
+    albums.push({
       image: image,
       fullName: fullName,
       genre: genre,
     });
   }
-  return box;
+  return albums;
 };
-console.log(generateFakerMusic());
-const data = generateFakerMusic();
+
+const generateFakerAlbumGroups = () => {
+  const groups = [];
+  for (let x = 1; x <= 3; x++) {
+    const data = generateFakerAlbums();
+    groups.push(data);
+  }
+  return groups;
+};
+const groups = generateFakerAlbumGroups();
 </script>
 <style scoped>
 .content {
