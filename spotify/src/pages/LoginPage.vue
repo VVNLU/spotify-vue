@@ -160,7 +160,7 @@ hr.style-two {
   font-size: 14px;
   font-weight: bold;
 }
-input {
+.emailTitle input {
   position: relative;
   width: 320px;
   height: 45px;
@@ -171,7 +171,7 @@ input {
   text-indent: 10px;
   color: white;
 }
-input:hover {
+.emailTitle input:hover {
   border: #fff 1.5px solid;
 }
 i {

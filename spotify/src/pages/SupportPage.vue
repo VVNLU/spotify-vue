@@ -171,8 +171,11 @@ import FooterOthers from "../components/FooterOthers.vue";
 .searchInput {
   position: relative;
 }
-input {
+.searchInput input {
   width: 100%;
+  height: 45px;
+  border-radius: 5px;
+  border: none;
   background-color: #fff;
   text-indent: 40px;
 }

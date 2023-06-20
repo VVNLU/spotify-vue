@@ -257,7 +257,7 @@ const tabs = ref([
 .listContent {
   margin: 5px 0;
 }
-hr {
+.premiumList hr {
   margin: 20px 0 5px 0;
 }
 .listUl {

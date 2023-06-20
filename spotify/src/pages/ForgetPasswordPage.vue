@@ -5,7 +5,7 @@
     </nav>
     <hr />
     <div class="content">
-      <div class="title">Password Reset</div>
+      <div class="resetTitle">Password Reset</div>
       <div class="restContent">
         Enter your <span class="boldFont"> Spotify username</span>, or the
         <span class="boldFont"> email address</span> that you used to register.
@@ -19,7 +19,7 @@
           type="email"
           placeholder="Email address or username"
         />
-        <label class="submitBtn"><button>Send</button></label>
+        <label class="snedBtn"><button>Send</button></label>
       </form>
       <div>
         If you still need help, contact
@@ -37,7 +37,7 @@
   width: 15%;
   margin: 20px;
 }
-hr {
+.navbar hr {
   background-color: #d9dadc;
   border: none;
   height: 1px;
@@ -49,7 +49,7 @@ hr {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   row-gap: 30px;
 }
-.title {
+.resetTitle {
   font-size: 45px;
   font-weight: bold;
   margin-top: 20px;
@@ -89,15 +89,16 @@ hr {
   justify-content: center;
   margin-top: 20px;
 }
-.submitBtn button {
+.snedBtn button {
   width: 95px;
   height: 50px;
+  margin-top: 20px;
   background-color: #1ed760;
   font-weight: bold;
   border-radius: 50px;
   border: none;
 }
-.submitBtn:hover {
+.snedBtn:hover {
   transform: scale(1.05);
 }
 .contact {
