@@ -78,7 +78,6 @@ const data = generateFakerMusic();
   padding: 20px;
   color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  border-radius: 10px;
 }
 .musicalbum {
   display: flex;
