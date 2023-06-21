@@ -1,10 +1,10 @@
 <template>
   <div class="signUp">
     <div class="upperHalf">
-      <router-link to="/">
-        <img class="logo" src="../assets/logo/logo_black.png" alt="spotify"
+      <router-link to="/" class="singupLogo">
+        <img src="../assets/logo/logo_black.png" alt="spotify"
       /></router-link>
-      <div class="title">免費註冊即可開始聆聽。</div>
+      <div class="signupTitle">免費註冊即可開始聆聽。</div>
       <div class="otherAccountBtn">
         <button class="FbBtn">
           <img src="../assets/logo/Facebook_white.png" alt="facebook" />
@@ -107,7 +107,7 @@
         >。
       </div>
       <button class="submitBtn" @click="signup">註冊</button>
-      <div>
+      <div class="haveAccount">
         已有帳號？<router-link to="login" class="loginRouter">登錄</router-link>
       </div>
     </div>
@@ -153,10 +153,10 @@ const signup = async () => {
   justify-content: center;
   row-gap: 40px;
 }
-.logo {
-  width: 35%;
+.singupLogo {
+  margin-top: 20px;
 }
-.title {
+.signupTitle {
   font-size: 32px;
   font-weight: bold;
 }
@@ -255,14 +255,12 @@ form {
 .showName {
   font-size: 14px;
 }
-.chooseGender {
-  display: flex;
-  width: 50%;
+.chooseGender input {
+  margin: 0 10px;
 }
 .container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   margin: 30px;
   row-gap: 30px;
 }
@@ -296,5 +294,8 @@ form {
 .submitBtn:hover {
   transform: scale(1.05);
   background: #1fdf64;
+}
+.haveAccount {
+  margin-bottom: 150px;
 }
 </style>
