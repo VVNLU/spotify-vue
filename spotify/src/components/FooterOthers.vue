@@ -6,26 +6,68 @@
     <div class="container">
       <span class="intro">公司簡介</span>
       <ul>
-        <li>關於我們</li>
-        <li>職位空缺</li>
-        <li>For the Record</li>
+        <li>
+          <a
+            href="https://www.spotify.com/tw/about-us/contact/?_ga=2.258006346.1737755475.1686481902-1571868643.1684332844&_gac=1.227740271.1684564880.CjwKCAjwvJyjBhApEiwAWz2nLeHUdPaajBMN28eBkcxulqkFNs1YRoTgEX2WQl3PlBt8tcqLtnIGFxoC15AQAvD_BwE"
+            >關於我們</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.lifeatspotify.com/?_ga=2.18587001.1737755475.1686481902-1571868643.1684332844&_gac=1.180104790.1684564880.CjwKCAjwvJyjBhApEiwAWz2nLeHUdPaajBMN28eBkcxulqkFNs1YRoTgEX2WQl3PlBt8tcqLtnIGFxoC15AQAvD_BwE"
+            >職位空缺</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://newsroom.spotify.com/?_ga=2.210820053.1737755475.1686481902-1571868643.1684332844&_gac=1.27346894.1684564880.CjwKCAjwvJyjBhApEiwAWz2nLeHUdPaajBMN28eBkcxulqkFNs1YRoTgEX2WQl3PlBt8tcqLtnIGFxoC15AQAvD_BwE"
+            >For the Record</a
+          >
+        </li>
       </ul>
 
       <span class="social">社群 </span>
       <ul>
-        <li>藝人專屬</li>
-        <li>開發商</li>
-        <li>廣告宣傳</li>
-        <li>投資者</li>
-        <li>供應商</li>
-        <li>Spotify for Work</li>
+        <li>
+          <a
+            href="https://artists.spotify.com/home?_ga=2.210820053.1737755475.1686481902-1571868643.1684332844&_gac=1.27346894.1684564880.CjwKCAjwvJyjBhApEiwAWz2nLeHUdPaajBMN28eBkcxulqkFNs1YRoTgEX2WQl3PlBt8tcqLtnIGFxoC15AQAvD_BwE"
+            >藝人專屬</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://developer.spotify.com/?_ga=2.43626597.1737755475.1686481902-1571868643.1684332844&_gac=1.247130870.1684564880.CjwKCAjwvJyjBhApEiwAWz2nLeHUdPaajBMN28eBkcxulqkFNs1YRoTgEX2WQl3PlBt8tcqLtnIGFxoC15AQAvD_BwE"
+            >開發商</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://ads.spotify.com/en-US/?_ga=2.43626597.1737755475.1686481902-1571868643.1684332844&_gac=1.247130870.1684564880.CjwKCAjwvJyjBhApEiwAWz2nLeHUdPaajBMN28eBkcxulqkFNs1YRoTgEX2WQl3PlBt8tcqLtnIGFxoC15AQAvD_BwE"
+            >廣告宣傳</a
+          >
+        </li>
+        <li>
+          <a href="https://investors.spotify.com/home/default.aspx">投資者</a>
+        </li>
+        <li><a href="https://spotifyforvendors.com/">供應商</a></li>
+        <li>
+          <a
+            href="https://www.spotify.com/tw/spotifyforwork/?_ga=2.9631733.1737755475.1686481902-1571868643.1684332844&_gac=1.248735605.1684564880.CjwKCAjwvJyjBhApEiwAWz2nLeHUdPaajBMN28eBkcxulqkFNs1YRoTgEX2WQl3PlBt8tcqLtnIGFxoC15AQAvD_BwE"
+            >Spotify for Work</a
+          >
+        </li>
       </ul>
 
       <span class="link">常用連結</span>
       <ul>
-        <li>支援</li>
-        <li>網路播放器</li>
-        <li>免費行動版App</li>
+        <li><router-link to="support">支援</router-link></li>
+        <li><router-link to="/">網路播放器</router-link></li>
+        <li>
+          <a
+            href="https://www.spotify.com/tw/free/?_ga=2.85105753.1737755475.1686481902-1571868643.1684332844&_gac=1.248646133.1684564880.CjwKCAjwvJyjBhApEiwAWz2nLeHUdPaajBMN28eBkcxulqkFNs1YRoTgEX2WQl3PlBt8tcqLtnIGFxoC15AQAvD_BwE"
+            >免費行動版App</a
+          >
+        </li>
       </ul>
     </div>
     <div class="socialMedia">
