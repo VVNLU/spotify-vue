@@ -3,7 +3,7 @@
     <div class="loginForm">
       <div class="loginTitle">登入到Spotify</div>
       <div class="chooseUserBtn">
-        <button>
+        <button @click="GoogleLogin()">
           <img src="../assets/logo/Google.png" alt="Google" /> 以 Google
           帳戶繼續
         </button>
@@ -19,12 +19,14 @@
       <form class="loginInfo" @submit.prevent>
         <div class="emailTitle">電子信箱或使用者名稱</div>
         <input
+          class="emailInput"
           v-model="email"
           type="email"
           placeholder="電子信箱或使用者名稱"
         />
-        <div class="pwdTitle">密碼</div>
+        <div class="PWSTitle">密碼</div>
         <input
+          class="PWSInput"
           v-model="password"
           :type="showPassword ? 'text' : 'password'"
           placeholder="密碼"
@@ -40,11 +42,25 @@
             "
           ></i>
         </a>
-        <a class="action-label icon">
-          <i class="mdi mdi-toggle-switch-off"></i> </a
-        ><span>記住我</span>
+        <label for="rememberMe">
+          <a
+            id="rememberMe"
+            class="action-label icon"
+            :class="rememberAccount ? 'rememberAccount' : 'rememberAccount'"
+          >
+            <i
+              @click="toggleremember"
+              :class="
+                rememberAccount
+                  ? 'mdi mdi-toggle-switch'
+                  : 'mdi mdi-toggle-switch-off'
+              "
+            ></i>
+            記住我</a
+          ></label
+        >
         <button class="loginBtn" @click="login()">登入</button>
-        <router-link to="/ForgetPassword" class="forgetPwd"
+        <router-link to="/ForgetPassword" class="forgetPWS"
           >忘記密碼？</router-link
         >
       </form>
@@ -60,15 +76,25 @@
 
 <script setup>
 import { ref } from "vue";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
 import { auth } from "../firebase/index.js";
 
 const email = ref("");
 const password = ref("");
 const showPassword = ref(false);
+const rememberAccount = ref(false);
+const providerGoogle = new GoogleAuthProvider();
 
 const togglePassword = function () {
   showPassword.value = !showPassword.value;
+};
+
+const toggleremember = () => {
+  rememberAccount.value = !rememberAccount.value;
 };
 
 const login = async () => {
@@ -84,12 +110,39 @@ const login = async () => {
     alert("您尚未註冊或帳號密碼有誤");
   }
 };
+const GoogleLogin = async () => {
+  signInWithPopup(auth, providerGoogle)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.email;
+      const credential = GoogleAuthProvider.credentialFromError(error);
+    });
+};
+const GoogleRedirect = async () => {
+  getRedirectResult(auth)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.email;
+      const credential = GoogleAuthProvider.credentialFromError(error);
+    });
+};
 </script>
 
 <style sopced>
 .login {
   display: flex;
-  align-items: center;
   justify-content: center;
   background-image: linear-gradient(to bottom, #1a1a1a, #000000);
 }
@@ -156,12 +209,13 @@ hr.style-two {
   row-gap: 10px;
 }
 .emailTitle,
-.pwdTitle {
+.PWSTitle {
   font-size: 14px;
   font-weight: bold;
 }
-.emailTitle input {
-  position: relative;
+.emailInput,
+.PWSInput {
+  display: flex;
   width: 320px;
   height: 45px;
   border-radius: 5px;
@@ -171,8 +225,12 @@ hr.style-two {
   text-indent: 10px;
   color: white;
 }
-.emailTitle input:hover {
+.emailInput:hover,
+.PWSInput:hover {
   border: #fff 1.5px solid;
+}
+.PWSInput {
+  position: relative;
 }
 i {
   font-size: 30px;
@@ -180,8 +238,15 @@ i {
 }
 #showEye {
   position: absolute;
-  bottom: -65px;
+  top: 595px;
   right: 480px;
+}
+#rememberMe {
+  display: inline-flex;
+  align-items: center;
+}
+.mdi-toggle-switch {
+  color: #1ed760;
 }
 .loginBtn {
   align-items: center;
@@ -198,7 +263,7 @@ i {
 .loginBtn:hover {
   transform: scale(1.05);
 }
-.forgetPwd {
+.forgetPWS {
   display: flex;
   justify-content: center;
   margin-top: 40px;
@@ -208,7 +273,7 @@ i {
   color: white;
   text-decoration: none;
 }
-.forgetPwd:hover,
+.forgetPWS:hover,
 .register:hover {
   color: #1ed760;
   cursor: pointer;
