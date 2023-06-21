@@ -62,16 +62,14 @@ const groups = generateFakerAlbumGroups();
 }
 img {
   border-radius: 5px;
-  width: 85%;
+  width: 80%;
 }
 .musicBox {
   position: relative;
   display: inline-flex;
-  flex-direction: column;
-  align-items: center;
   margin: 20px;
   width: 200px;
-  height: 300px;
+  height: 280px;
   background-color: #181818;
   border-radius: 10px;
 }
@@ -90,12 +88,22 @@ i {
 .musicBox:hover i {
   display: block;
 }
+.musicBox a {
+  text-decoration: none;
+}
 .musicTitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  padding: 0 20px;
+  color: white;
   font-weight: bold;
 }
 .musicContent {
   display: flex;
-  justify-content: center;
+  padding-left: 20px;
   margin-top: 10px;
   width: 170px;
   color: grey;
