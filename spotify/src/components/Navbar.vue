@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <div class="logo">
+    <div class="navbarLogo">
       <router-link to="/"
         ><img src="../assets/logo/logo.png" alt=""
       /></router-link>
@@ -25,7 +25,7 @@
   grid-template-columns: repeat (7, 1fr);
   background-color: #000;
 }
-.logo {
+.navbarLogo {
   grid-column: 1/1;
   margin-left: 30px;
 }

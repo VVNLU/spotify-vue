@@ -1,7 +1,11 @@
 <template>
   <div>
     <nav class="navbar">
-      <img src="../assets/logo/logo_black.png" alt="spotify" class="logo" />
+      <img
+        src="../assets/logo/logo_black.png"
+        alt="spotify"
+        class="resetLogo"
+      />
     </nav>
     <hr />
     <div class="content">
@@ -33,7 +37,7 @@
   display: flex;
   justify-content: center;
 }
-.logo {
+.resetLogo {
   width: 15%;
   margin: 20px;
 }

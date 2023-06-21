@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <div class="logo">
+    <div class="footerLogo">
       <img src="../assets/logo/logo.png" alt="" />
     </div>
     <div class="container">
@@ -143,12 +143,12 @@
 .footerConnect a {
   color: grey;
 }
-.logo {
+.footerLogo {
   grid-row: 2/3;
   grid-column: 1/2;
   padding-left: 50px;
 }
-.logo img {
+.footerLogo img {
   width: 150px;
 }
 .container {
