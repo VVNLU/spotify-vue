@@ -1,8 +1,6 @@
 <template>
-  <div class="home">
-    <HomeContent />
-  </div>
-  <!-- <HomeAlbum /> -->
+  <HomeContent v-if="$route.name === 'home'" />
+  <HomeAlbum v-else />
 </template>
 <script setup>
 import HomeContent from "../components/HomeContent.vue";

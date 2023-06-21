@@ -6,6 +6,8 @@ import ForgetPasswordPage from "../pages/ForgetPasswordPage.vue";
 import PremiumPage from "../pages/PremiumPage.vue";
 import SupportPage from "../pages/SupportPage.vue";
 import ProfileEdittingPage from "../pages/ProfileEdittingPage.vue";
+import HomeContent from "../components/HomeContent.vue";
+import HomeAlbum from "../components/HomeAlbum.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +16,16 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomePage,
+      children: [
+        {
+          path: "content",
+          component: HomeContent,
+        },
+        {
+          path: "album",
+          component: HomeAlbum,
+        },
+      ],
     },
     {
       path: "/login",
