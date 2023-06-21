@@ -83,12 +83,42 @@
     </div>
     <div class="footerConnect">
       <ul>
-        <li>法律條款</li>
-        <li>隱私權中心</li>
-        <li>隱私政策</li>
-        <li>Cookie</li>
-        <li>關於廣告</li>
-        <li>無障礙</li>
+        <li>
+          <a
+            href="https://www.spotify.com/tw/legal/end-user-agreement/?_ga=2.216186198.1737755475.1686481902-1571868643.1684332844&_gac=1.128534270.1684564880.CjwKCAjwvJyjBhApEiwAWz2nLeHUdPaajBMN28eBkcxulqkFNs1YRoTgEX2WQl3PlBt8tcqLtnIGFxoC15AQAvD_BwE"
+            >法律條款</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.spotify.com/tw/privacy?_ga=2.52493416.1737755475.1686481902-1571868643.1684332844&_gac=1.220793578.1684564880.CjwKCAjwvJyjBhApEiwAWz2nLeHUdPaajBMN28eBkcxulqkFNs1YRoTgEX2WQl3PlBt8tcqLtnIGFxoC15AQAvD_BwE"
+            >隱私權中心</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.spotify.com/tw/legal/privacy-policy/?_ga=2.52493416.1737755475.1686481902-1571868643.1684332844&_gac=1.220793578.1684564880.CjwKCAjwvJyjBhApEiwAWz2nLeHUdPaajBMN28eBkcxulqkFNs1YRoTgEX2WQl3PlBt8tcqLtnIGFxoC15AQAvD_BwE"
+            >隱私政策</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.spotify.com/tw/legal/cookies-policy/?_ga=2.52493416.1737755475.1686481902-1571868643.1684332844&_gac=1.220793578.1684564880.CjwKCAjwvJyjBhApEiwAWz2nLeHUdPaajBMN28eBkcxulqkFNs1YRoTgEX2WQl3PlBt8tcqLtnIGFxoC15AQAvD_BwE"
+            >Cookie</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.spotify.com/tw/legal/privacy-policy/?&_ga=2.253410377.1737755475.1686481902-1571868643.1684332844&_gac=1.58461912.1684564880.CjwKCAjwvJyjBhApEiwAWz2nLeHUdPaajBMN28eBkcxulqkFNs1YRoTgEX2WQl3PlBt8tcqLtnIGFxoC15AQAvD_BwE#s3"
+            >關於廣告</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.spotify.com/tw/accessibility?_ga=2.253410377.1737755475.1686481902-1571868643.1684332844&_gac=1.58461912.1684564880.CjwKCAjwvJyjBhApEiwAWz2nLeHUdPaajBMN28eBkcxulqkFNs1YRoTgEX2WQl3PlBt8tcqLtnIGFxoC15AQAvD_BwE"
+            >無障礙</a
+          >
+        </li>
       </ul>
     </div>
     <div class="copyright">&copy;2023 Spotify AB</div>
@@ -102,8 +132,16 @@
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(6, 1fr);
   background: #000;
-  color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.footer a {
+  text-decoration: none;
+}
+.container a {
+  color: white;
+}
+.footerConnect a {
+  color: grey;
 }
 .logo {
   grid-row: 2/3;
@@ -119,7 +157,7 @@
   grid-row: 2/4;
   grid-column: 2/5;
 }
-span {
+.container span {
   display: flex;
   font-size: 12px;
   color: gray;
@@ -153,15 +191,13 @@ span {
   margin: 10px;
   padding: 10px 15px 10px 15px;
 }
-.container li:hover,
+.container li > a:hover,
 .socialMedia i:hover,
-.footerConnect li:hover {
+.footerConnect li > a:hover {
   color: #1ed760;
-  cursor: pointer;
 }
 .footerConnect {
-  font-size: 14px;
-  color: grey;
+  font-size: 12px;
   grid-row: 6/6;
   grid-column: 1/6;
 }
