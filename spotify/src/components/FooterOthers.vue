@@ -29,9 +29,15 @@
       </ul>
     </div>
     <div class="socialMedia">
-      <a class="action-label icon"><i class="mdi mdi-instagram"></i></a>
-      <a class="action-label icon"><i class="mdi mdi-twitter"></i></a>
-      <a class="action-label icon"><i class="mdi mdi-facebook"></i></a>
+      <a class="action-label icon" href="https://www.instagram.com/spotify/"
+        ><i class="mdi mdi-instagram"></i
+      ></a>
+      <a class="action-label icon" href="https://twitter.com/spotify"
+        ><i class="mdi mdi-twitter"></i
+      ></a>
+      <a class="action-label icon" href="https://www.facebook.com/Spotify"
+        ><i class="mdi mdi-facebook"></i
+      ></a>
     </div>
     <div class="footerConnect">
       <ul>
