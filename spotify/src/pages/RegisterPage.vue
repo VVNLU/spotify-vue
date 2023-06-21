@@ -24,7 +24,7 @@
     <div class="lowerHalf">
       <div class="formTitle">使用電子郵件地址註冊</div>
       <form @submit.prevent>
-        <label for="emailAdd" class="emailTitle"
+        <label for="emailAdd" class="emailAddTitle"
           >你的電子郵件地址是什麼？</label
         >
         <input
@@ -243,7 +243,7 @@ form {
 #birthday:hover {
   border: #000 1.5px solid;
 }
-.emailTitle,
+.emailAddTitle,
 .passwordTitle,
 .nameTitle,
 .genderTitle,
