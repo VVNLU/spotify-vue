@@ -110,20 +110,21 @@ const login = async () => {
     alert("您尚未註冊或帳號密碼有誤");
   }
 };
+
 const GoogleLogin = async () => {
-  signInWithPopup(auth, providerGoogle)
-    .then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const email = error.email;
-      const credential = GoogleAuthProvider.credentialFromError(error);
-    });
+  try {
+    const result = await signInWithPopup(auth, providerGoogle);
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const user = result.user;
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const email = error.email;
+    const credential = GoogleAuthProvider.credentialFromError(error);
+  }
 };
+
 const GoogleRedirect = async () => {
   getRedirectResult(auth)
     .then((result) => {
