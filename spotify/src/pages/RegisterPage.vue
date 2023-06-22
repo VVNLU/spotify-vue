@@ -117,11 +117,13 @@
 import { ref } from "vue";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase/index";
+import { useRouter } from "vue-router";
 
 const name = ref("");
 const email = ref("");
 const password = ref("");
 const birthday = ref("");
+const router = useRouter();
 
 const signup = async () => {
   try {
@@ -136,6 +138,7 @@ const signup = async () => {
     await updateProfile(user, {
       displayName: name.value,
     });
+    router.replace("/");
   } catch (e) {
     throw new Error(e);
   }
