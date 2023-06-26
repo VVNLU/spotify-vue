@@ -4,6 +4,15 @@
       <a class="action-label icon"> <i class="mdi mdi-chevron-left"></i></a>
       <a class="action-label icon"> <i class="mdi mdi-chevron-right"></i></a>
     </div>
+    <div class="searchBar">
+      <a class="action-label icon"> <i class="mdi mdi-magnify"></i></a>
+      <input
+        type="text"
+        class="searchInput"
+        id="searchInput"
+        placeholder="想聽什麼？"
+      />
+    </div>
     <div class="connect">
       <router-link to="premium">Premium</router-link>
       <router-link to="support">支援</router-link>
@@ -25,6 +34,7 @@ import { ref } from "vue";
 
 const router = useRouter();
 const isLogin = ref(true);
+const isSearch = ref(false);
 
 const btn = () => {
   router.replace("/login");
@@ -52,6 +62,30 @@ const btn = () => {
   background-color: #0a0a0a;
   border-radius: 50px;
   padding: 2px;
+}
+.searchBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}
+.searchBar i {
+  position: absolute;
+  color: white;
+  left: 20px;
+}
+.searchInput {
+  width: 360px;
+  height: 45px;
+  border: #242424 1px solid;
+  border-radius: 50px;
+  text-indent: 40px;
+  font-size: 16px;
+  background-color: #242424;
+  caret-color: white;
+}
+.searchInput:hover {
+  border: #414141 1px solid;
 }
 .connect {
   display: inline-flex;
