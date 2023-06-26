@@ -20,7 +20,7 @@ import { faker } from "@faker-js/faker";
 
 const generateFakerAlbums = () => {
   const albums = [];
-  for (let i = 1; i <= 4; i++) {
+  for (let i = 1; i <= 6; i++) {
     const image = faker.image.url({
       height: 200,
       width: 200,
@@ -48,8 +48,6 @@ const groups = generateFakerAlbumGroups();
 </script>
 <style scoped>
 .content {
-  width: 100%;
-  height: 100%;
   color: white;
   background-image: linear-gradient(to bottom, #1f1f1f, #000000);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -73,9 +71,9 @@ img {
   background-color: #181818;
   border-radius: 10px;
 }
-i {
+.musicBox i {
   position: absolute;
-  top: 130px;
+  top: 120px;
   right: 20px;
   font-size: 50px;
   display: none;
@@ -109,4 +107,9 @@ i {
   color: grey;
   font-size: 14px;
 }
+/* @media (min-width: 1000px) {
+  .musicBox {
+    overflow: hidden;
+  }
+} */
 </style>
