@@ -11,6 +11,7 @@
   "dependencies": {
     "@faker-js/faker": "^8.0.2",
     "@mdi/font": "^7.2.96",
+    "axios": "^1.4.0",
     "firebase": "^9.22.1",
     "prettier": "^2.8.8",
     "prettier-eslint": "^15.0.1",
