@@ -16,6 +16,7 @@
     "prettier": "^2.8.8",
     "prettier-eslint": "^15.0.1",
     "vue": "^3.2.47",
+    "vue-axios": "^3.5.2",
     "vue-media": "^1.1.1",
     "vue-router": "^4.2.2",
     "vue3-cookies": "^1.0.6",
