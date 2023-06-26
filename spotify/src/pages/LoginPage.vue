@@ -17,48 +17,54 @@
       </div>
       <hr class="style-two" />
       <form class="loginInfo" @submit.prevent>
-        <div class="emailTitle">電子信箱或使用者名稱</div>
-        <input
-          class="emailInput"
-          v-model="email"
-          type="email"
-          placeholder="電子信箱或使用者名稱"
-        />
-        <div class="PWSTitle">密碼</div>
-        <input
-          class="PWSInput"
-          v-model="password"
-          :type="showPassword ? 'text' : 'password'"
-          placeholder="密碼"
-        />
-        <a
-          id="showEye"
-          class="action-label icon"
-          :class="showPassword ? 'showPassword' : '!showPassword'"
-          ><i
-            @click="togglePassword"
-            :class="
-              showPassword ? 'mdi mdi-eye-outline' : 'mdi mdi-eye-off-outline'
-            "
-          ></i>
-        </a>
-        <label for="rememberMe">
+        <div class="inputTitle">
+          <p>電子信箱或使用者名稱</p>
+          <input
+            class="userInput emailInput"
+            v-model="email"
+            type="email"
+            placeholder="電子信箱或使用者名稱"
+          />
+        </div>
+        <div class="inputTitle">
+          <p>密碼</p>
+          <input
+            class="userInput PWSInput"
+            v-model="password"
+            :type="showPassword ? 'text' : 'password'"
+            placeholder="密碼"
+          />
           <a
-            id="rememberMe"
+            id="showEye"
             class="action-label icon"
-            :class="rememberAccount ? 'rememberAccount' : 'rememberAccount'"
-          >
-            <i
-              @click="toggleremember"
+            :class="showPassword ? 'showPassword' : '!showPassword'"
+            ><i
+              @click="togglePassword"
               :class="
-                rememberAccount
-                  ? 'mdi mdi-toggle-switch'
-                  : 'mdi mdi-toggle-switch-off'
+                showPassword ? 'mdi mdi-eye-outline' : 'mdi mdi-eye-off-outline'
               "
             ></i>
-            記住我</a
-          ></label
-        >
+          </a>
+        </div>
+        <div class="rememberBtn">
+          <label for="rememberMe">
+            <a
+              id="rememberMe"
+              class="action-label icon"
+              :class="rememberAccount ? 'rememberAccount' : 'rememberAccount'"
+            >
+              <i
+                @click="toggleremember"
+                :class="
+                  rememberAccount
+                    ? 'mdi mdi-toggle-switch'
+                    : 'mdi mdi-toggle-switch-off'
+                "
+              ></i>
+              記住我</a
+            ></label
+          >
+        </div>
         <button class="loginBtn" @click="login()">登入</button>
         <router-link to="/ForgetPassword" class="forgetPWS"
           >忘記密碼？</router-link
@@ -106,6 +112,7 @@ const login = async () => {
     );
     const user = userCredential.user;
     console.log(user);
+    router.replace("/");
   } catch (e) {
     alert("您尚未註冊或帳號密碼有誤");
   }
@@ -209,13 +216,11 @@ hr.style-two {
   place-items: center;
   row-gap: 10px;
 }
-.emailTitle,
-.PWSTitle {
+.inputTitle p {
   font-size: 14px;
   font-weight: bold;
 }
-.emailInput,
-.PWSInput {
+.userInput {
   display: flex;
   width: 320px;
   height: 45px;
@@ -226,11 +231,10 @@ hr.style-two {
   text-indent: 10px;
   color: white;
 }
-.emailInput:hover,
-.PWSInput:hover {
+.userInput:hover {
   border: #fff 1.5px solid;
 }
-.PWSInput {
+.inputTitle {
   position: relative;
 }
 i {
@@ -239,8 +243,8 @@ i {
 }
 #showEye {
   position: absolute;
-  top: 595px;
-  right: 480px;
+  top: 50px;
+  left: 280px;
 }
 #rememberMe {
   display: inline-flex;
