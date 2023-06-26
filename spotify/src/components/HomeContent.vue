@@ -58,7 +58,7 @@ const groups = generateFakerAlbumGroups();
 .playlistTitle {
   font-size: 24px;
 }
-img {
+.musicBox img {
   border-radius: 5px;
   width: 80%;
 }
