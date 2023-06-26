@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="focus" v-for="group in groups">
-      <div class="title">播放清單</div>
+      <div class="playlistTitle">播放清單</div>
       <div class="musicBox" v-for="item in group">
         <router-link to="album">
           <a class="action-label icon"><i class="mdi mdi-play-circle"></i></a>
@@ -57,7 +57,7 @@ const groups = generateFakerAlbumGroups();
 .focus {
   margin: 10px 0 0 25px;
 }
-.title {
+.playlistTitle {
   font-size: 24px;
 }
 img {
