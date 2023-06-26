@@ -8,6 +8,7 @@ import SupportPage from "../pages/SupportPage.vue";
 import ProfileEdittingPage from "../pages/ProfileEdittingPage.vue";
 import HomeContent from "../components/HomeContent.vue";
 import HomeAlbum from "../components/HomeAlbum.vue";
+import Search from "../components/Search.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,8 +26,13 @@ const router = createRouter({
           path: "album",
           component: HomeAlbum,
         },
+        {
+          path: "search",
+          component: Search,
+        },
       ],
     },
+
     {
       path: "/login",
       name: "login",
