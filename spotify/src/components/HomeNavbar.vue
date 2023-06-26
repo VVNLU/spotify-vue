@@ -9,15 +9,23 @@
       <router-link to="support">支援</router-link>
       <router-link to="">下載</router-link>
       <span>｜</span>
-      <router-link to="register">註冊</router-link>
-      <button @click="btn">登入</button>
+      <div class="unlogin" v-if="isLogin">
+        <router-link to="register">註冊</router-link>
+        <button @click="btn">登入</button>
+      </div>
+      <div class="login" v-else>
+        <button>登出</button>
+      </div>
     </div>
   </div>
 </template>
 <script setup>
 import { useRouter } from "vue-router";
+import { ref } from "vue";
 
 const router = useRouter();
+const isLogin = ref(true);
+
 const btn = () => {
   router.replace("/login");
 };
@@ -46,6 +54,9 @@ const btn = () => {
   padding: 2px;
 }
 .connect {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
   grid-column: 8/8;
   color: white;
 }
