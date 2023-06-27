@@ -9,6 +9,7 @@ import ProfileEdittingPage from "../pages/ProfileEdittingPage.vue";
 import HomeContent from "../components/HomeContent.vue";
 import HomeAlbum from "../components/HomeAlbum.vue";
 import Search from "../components/Search.vue";
+import Genre from "../components/Genre.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,22 +18,23 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomePage,
-      children: [
-        {
-          path: "content",
-          component: HomeContent,
-        },
-        {
-          path: "album",
-          component: HomeAlbum,
-        },
-        {
-          path: "search",
-          component: Search,
-        },
-      ],
+    },
+    {
+      path: "/content",
+      name: "content",
+      component: HomeContent,
+    },
+    {
+      path: "/album",
+      name: "album",
+      component: HomeAlbum,
     },
 
+    {
+      path: "/search",
+      name: "search",
+      component: Search,
+    },
     {
       path: "/login",
       name: "login",
@@ -62,6 +64,11 @@ const router = createRouter({
       path: "/profile/edit",
       name: "profileEdit",
       component: ProfileEdittingPage,
+    },
+    {
+      path: "/genre",
+      name: "genre",
+      component: Genre,
     },
   ],
 });
