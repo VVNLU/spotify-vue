@@ -1,7 +1,7 @@
 <template>
   <div class="albums">
     <div class="musicalbum">
-      <img src="../assets/album/peacefulPiano.png" alt="" />
+      <img src="../assets/album/peacefulPiano.png" />
       <div class="albumInfo">
         <p class="albumList">播放清單</p>
         <p class="albumTitle">Peaceful Piano</p>
@@ -14,67 +14,75 @@
         </div>
       </div>
     </div>
-
-    <a class="action-label icon"><i class="mdi mdi-play-circle"></i></a>
-
+    <div class="playlistIcon">
+      <a class="action-label icon"
+        ><i class="mdi mdi-play-circle listplayer"></i
+      ></a>
+      <a class="action-label icon"
+        ><i class="mdi mdi-heart-outline favorPlaylist"></i
+      ></a>
+    </div>
     <div class="musicGroups">
       <table>
-        <tr class="musicBar">
-          <th class="barIndex">#</th>
-          <th class="barTitle" colspan="5">標題</th>
-          <th class="barAlbim" colspan="4">專輯</th>
-          <th class="barDate" colspan="3">新增日期</th>
-          <th class="barTime">時間</th>
-        </tr>
-        <tr class="musicList" v-for="item in data">
-          <td>{{ item.index }}</td>
-          <td>
-            <img :src="item.image" />
-          </td>
-          <td colspan="4" class="musicName">
-            {{ item.songName }}<br /><span class="singerName">{{
-              item.fullName
-            }}</span>
-          </td>
-          <td colspan="4">{{ item.genre }}</td>
-          <td colspan="3">{{ item.date }}</td>
-          <td>2:10</td>
-        </tr>
+        <thead>
+          <tr>
+            <th class="barIndex">#</th>
+            <th class="barTitle">標題</th>
+            <th class="barAlbim">專輯</th>
+            <th class="barDate">新增日期</th>
+            <th class="barFavor"></th>
+            <th class="barTime">
+              <a class="action-label icon"
+                ><i class="mdi mdi-clock-time-three-outline time"></i
+              ></a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="musicList" v-for="item in playlistItems">
+            <td>
+              <a class="action-label icon"
+                ><i class="mdi mdi-play showPlayer"></i
+              ></a>
+              {{ item.items }}
+            </td>
+            <td class="musicInfo">
+              <img :src="item.track.album.images[2].url" />
+              <div class="musicName">
+                {{ item.track.name }}<br />
+                <span class="singerName">{{ item.track.artists[0].name }}</span>
+              </div>
+            </td>
+            <td>{{ item.track.album.name }}</td>
+            <td>{{ dateToRelative(item.added_at) }}</td>
+            <td>
+              <a class="action-label icon"
+                ><i class="mdi mdi-heart-outline favor"></i
+              ></a>
+            </td>
+            <td>0:30</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
 </template>
 <script setup>
-import { faker } from "@faker-js/faker";
-const generateFakerMusic = () => {
-  const music = [];
-  for (let i = 1; i <= 10; i++) {
-    const index = i;
-    const image = faker.image.url({
-      height: 100,
-      width: 100,
-    });
-    const songName = faker.music.songName();
-    const fullName = faker.person.fullName();
-    const genre = faker.music.genre();
-    const date = faker.date.past();
-    music.push({
-      index: index,
-      image: image,
-      songName: songName,
-      fullName: fullName,
-      genre: genre,
-      date: date,
-    });
-  }
-  return music;
-};
+import { getPlaylistItems } from "../api/spotify";
+import { onMounted, ref } from "vue";
+import { dateToRelative } from "../utils/date";
 
-const data = generateFakerMusic();
+const playlistItems = ref([]);
+
+onMounted(async () => {
+  const response = await getPlaylistItems();
+  console.log(response);
+  playlistItems.value = response.items;
+});
 </script>
 <style scoped>
 .albums {
-  background: linear-gradient(to top, #000, #393b3f);
+  background: linear-gradient(to top, #121212 90%, #e01b32);
   padding: 20px;
   color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -106,28 +114,71 @@ const data = generateFakerMusic();
   display: flex;
   align-items: center;
 }
-.mdi {
+.playlistIcon {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 20px;
+}
+.listplayer {
   color: #1ed760;
   font-size: 65px;
 }
+.favorPlaylist {
+  font-size: 40px;
+  color: #cab6b8;
+}
+.favorPlaylist:hover {
+  color: white;
+}
+.time {
+  font-size: 18px;
+}
 table {
+  font-size: 14px;
+  width: 100%;
   text-align: left;
   color: #b3b3b3;
   border-collapse: collapse;
-  width: 100%;
 }
 th {
-  width: 50px;
-  height: 50px;
+  position: sticky;
+  top: 75px;
+  height: 40px;
   border-bottom: 1px solid #393b3f;
+  background-color: transparent;
 }
 td {
+  height: 60px;
+}
+.barIndex {
   width: 50px;
-  height: 50px;
+  text-align: center;
+}
+.barDate,
+.barFavor {
+  width: 100px;
 }
 .musicList img {
   margin-left: 0;
   width: 40px;
+}
+.musicList .mdi {
+  display: none;
+}
+.musicList:hover .mdi {
+  display: block;
+  font-size: 20px;
+  text-align: center;
+}
+.showPlayer {
+  color: white;
+}
+.favor:hover {
+  color: white;
+}
+.musicInfo {
+  display: inline-flex;
+  align-items: center;
 }
 .singerName {
   color: #b3b3b3;
@@ -135,5 +186,8 @@ td {
 }
 .musicName {
   color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 </style>
