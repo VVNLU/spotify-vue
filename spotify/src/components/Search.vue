@@ -1,32 +1,27 @@
 <template>
   <div class="searchBar">
     <div class="browseAll">瀏覽全部</div>
-    <div class="browseBox" v-for="item in data">
-      <img :src="item.image" />
-      <span class="browseContent">Artist．{{ item.genre }}</span>
+    <div class="browseBox" v-for="category in categories">
+      <img :src="category.icons[0].url" />
+      <span class="browseContent">{{ category.name }}</span>
     </div>
   </div>
 </template>
 <script setup>
-import { faker } from "@faker-js/faker";
+import { onMounted, ref } from "vue";
+import { getCategories } from "../api/spotify";
 
-const generateFakerAlbums = () => {
-  const groups = [];
-  for (let i = 1; i <= 70; i++) {
-    const image = faker.image.url({
-      height: 200,
-      width: 200,
-    });
-    const genre = faker.music.genre();
-    groups.push({
-      image: image,
-      genre: genre,
-    });
-  }
-  return groups;
-};
-
-const data = generateFakerAlbums();
+const categories = ref([]);
+onMounted(async () => {
+  const response = await getCategories();
+  categories.value = response.categories.items;
+  //categories.value = (await getCategories()).categories.items;
+});
+// const data2 = ref();
+// axios.get("browse/categories").then(function (response) {
+//   data2.value = response;
+//   console.log(response);
+// });
 </script>
 <style>
 .searchBar {
@@ -37,6 +32,7 @@ const data = generateFakerAlbums();
 .browseAll {
   font-size: 24px;
   font-weight: bold;
+  padding: 20px;
 }
 .browseBox > img {
   border-radius: 5px;
