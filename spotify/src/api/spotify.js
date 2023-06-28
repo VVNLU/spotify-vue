@@ -15,3 +15,9 @@ export const getPlaylistItems = async () => {
   const response = await api.get("playlists/37i9dQZF1DWWqC43bGTcPc/tracks");
   return response.data;
 };
+
+// export const getUserTopItems = async () => {
+//   const response = await api.get("me/top/artists");
+//   return response;
+// };
+// Authorization需要scopes
