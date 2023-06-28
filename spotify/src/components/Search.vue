@@ -5,9 +5,11 @@
       <img :src="category.icons[0].url" />
       <span class="browseContent">{{ category.name }}</span>
     </div>
+    <FooterOthers class="footer" />
   </div>
 </template>
 <script setup>
+import FooterOthers from "../components/FooterOthers.vue";
 import { onMounted, ref } from "vue";
 import { getCategories } from "../api/spotify";
 
@@ -25,10 +27,24 @@ onMounted(async () => {
 </script>
 <style>
 .searchBar {
+  height: 89.3%;
+  overflow: auto;
+  white-space: wrap;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #121212;
   color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #5a5a5a;
+}
+
 .browseAll {
   font-size: 24px;
   font-weight: bold;
@@ -37,6 +53,7 @@ onMounted(async () => {
 .browseBox > img {
   border-radius: 5px;
   width: 80%;
+  margin: 20px;
 }
 
 .browseBox {
@@ -57,5 +74,8 @@ onMounted(async () => {
   padding: 0 20px;
   color: white;
   font-weight: bold;
+}
+.footer {
+  background-color: transparent;
 }
 </style>
