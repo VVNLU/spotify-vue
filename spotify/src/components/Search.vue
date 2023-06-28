@@ -1,11 +1,14 @@
+`
 <template>
   <div class="searchBar">
     <div class="browseAll">瀏覽全部</div>
     <div class="browseBox" v-for="category in categories">
-      <img :src="category.icons[0].url" />
-      <span class="browseContent">{{ category.name }}</span>
+      <router-link to="genre">
+        <img :src="category.icons[0].url" class="categoryImg" />
+        <span class="browseContent">{{ category.name }}</span></router-link
+      >
     </div>
-    <FooterOthers class="footer" />
+    <FooterOthers style="background-color: transparent" />
   </div>
 </template>
 <script setup>
@@ -27,6 +30,7 @@ onMounted(async () => {
 </script>
 <style>
 .searchBar {
+  padding: 0 20px;
   height: 89.3%;
   overflow: auto;
   white-space: wrap;
@@ -48,9 +52,9 @@ onMounted(async () => {
 .browseAll {
   font-size: 24px;
   font-weight: bold;
-  padding: 20px;
+  padding: 20px 0;
 }
-.browseBox > img {
+.categoryImg {
   border-radius: 5px;
   width: 80%;
   margin: 20px;
@@ -59,7 +63,7 @@ onMounted(async () => {
 .browseBox {
   display: inline-flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 15px;
   width: 200px;
   height: 250px;
   background-color: #181818;
@@ -69,13 +73,15 @@ onMounted(async () => {
   background-color: #222222;
   cursor: pointer;
 }
-.browseContent {
+.browseBox > a {
+  text-decoration: none;
   text-align: center;
+}
+.browseContent {
   padding: 0 20px;
   color: white;
   font-weight: bold;
-}
-.footer {
-  background-color: transparent;
+  font-size: 20px;
 }
 </style>
+`
