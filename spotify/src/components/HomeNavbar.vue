@@ -48,7 +48,10 @@ const btn = () => {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   grid-template-columns: repeat (7, 1fr);
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #121212;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: 10px 10px 0 0;
 }
 .pagingBtn {
   display: inline-flex;
@@ -102,7 +105,7 @@ a,
   color: gray;
   margin: 5px;
 }
-a:hover,
+.pagingBtn a:hover,
 .router-link-active:hover {
   color: white;
   transform: scale(1.05);
