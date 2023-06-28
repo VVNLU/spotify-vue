@@ -13,10 +13,23 @@
         >
       </div>
     </div>
+    <FooterOthers class="FooterOthers" />
   </div>
 </template>
 <script setup>
+import FooterOthers from "../components/FooterOthers.vue";
 import { faker } from "@faker-js/faker";
+import FooterOthersVue from "./FooterOthers.vue";
+// import { getUserTopItems } from "../api/spotify";
+// import { ref, onMounted } from "vue";
+
+// const userTopItems = ref([]);
+
+// onMounted(async () => {
+//   const response = await getUserTopItems();
+//   console.log(response);
+//   // userTopItems.value = response;
+// });
 
 const generateFakerAlbums = () => {
   const albums = [];
@@ -48,9 +61,23 @@ const groups = generateFakerAlbumGroups();
 </script>
 <style scoped>
 .content {
+  height: 89.3%;
+  overflow: auto;
+  white-space: nowrap;
   color: white;
-  background-image: linear-gradient(to bottom, #1f1f1f, #000000);
+  margin: 0 10px 10px 0;
+  background-image: linear-gradient(to bottom, #1d1d1d 10%, #121212);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #5a5a5a;
 }
 .focus {
   margin: 10px 0 0 25px;
@@ -58,18 +85,19 @@ const groups = generateFakerAlbumGroups();
 .playlistTitle {
   font-size: 24px;
 }
-.musicBox img {
-  border-radius: 5px;
-  width: 80%;
-}
 .musicBox {
   position: relative;
   display: inline-flex;
-  margin: 20px;
+  margin: 15px;
   width: 200px;
   height: 280px;
   background-color: #181818;
   border-radius: 10px;
+}
+.musicBox img {
+  border-radius: 5px;
+  width: 80%;
+  margin: 20px;
 }
 .musicBox i {
   position: absolute;
@@ -106,6 +134,9 @@ const groups = generateFakerAlbumGroups();
   width: 170px;
   color: grey;
   font-size: 14px;
+}
+.FooterOthers {
+  background-color: transparent;
 }
 /* @media (min-width: 1000px) {
   .musicBox {
