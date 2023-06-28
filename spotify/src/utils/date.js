@@ -15,7 +15,7 @@ export function dateToRelative(dateStr) {
     const hours = Math.floor(diff / (1000 * 60 * 60));
     return `${hours}小時前`;
   }
-  return `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${
-    "0" + (date.getDate() + 1).slice(-2)
-  }`;
+  // return `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${
+  //   "0" + (date.getDate() + 1).slice(-2)
+  // }`;
 }
