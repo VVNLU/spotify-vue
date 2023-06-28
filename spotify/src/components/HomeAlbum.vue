@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="playlistIcon">
-      <a class="action-label icon"
+      <a class="action-label icon listplayer"
         ><i class="mdi mdi-play-circle listplayer"></i
       ></a>
       <a class="action-label icon"
@@ -82,20 +82,38 @@ onMounted(async () => {
 </script>
 <style scoped>
 .albums {
-  background: linear-gradient(to top, #121212 90%, #e01b32);
-  padding: 20px;
+  height: 89.3%;
+  overflow: auto;
+  white-space: wrap;
+  margin-right: 10px;
+  background: linear-gradient(to top, #121212 50%, #4e4b4b);
   color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #5a5a5a;
+}
+
 .musicalbum {
   display: flex;
 }
 .musicalbum > img {
-  width: 20%;
+  width: 25%;
+  margin: 30px 0 0 20px;
   box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
 }
+.albumInfo {
+  margin: 100px 0 0 30px;
+  line-height: 0px;
+}
 .albumInfo img {
-  margin: 0;
   width: 40px;
 }
 .albumList {
@@ -103,7 +121,7 @@ onMounted(async () => {
   font-weight: bold;
 }
 .albumTitle {
-  font-size: 32px;
+  font-size: 80px;
   font-weight: bold;
 }
 .albumContent {
@@ -115,6 +133,7 @@ onMounted(async () => {
   align-items: center;
 }
 .playlistIcon {
+  margin-left: 10px;
   display: inline-flex;
   align-items: center;
   column-gap: 20px;
@@ -122,6 +141,9 @@ onMounted(async () => {
 .listplayer {
   color: #1ed760;
   font-size: 65px;
+}
+.listplayer:hover {
+  transform: scale(1.05);
 }
 .favorPlaylist {
   font-size: 40px;
@@ -159,13 +181,15 @@ td {
   width: 100px;
 }
 .musicList img {
-  margin-left: 0;
+  margin-right: 20px;
   width: 40px;
 }
-.musicList .mdi {
+.showPlayer,
+.favor {
   display: none;
 }
-.musicList:hover .mdi {
+.showPlayer:hover,
+.favor:hover {
   display: block;
   font-size: 20px;
   text-align: center;
