@@ -3,7 +3,7 @@
     <div class="focus" v-for="group in groups">
       <div class="playlistTitle">播放清單</div>
       <div class="musicBox" v-for="item in group">
-        <router-link to="genre">
+        <router-link to="">
           <a class="action-label icon"><i class="mdi mdi-play-circle"></i></a>
           <img :src="item.image" />
           <span class="musicTitle">{{ item.fullName }}</span>
@@ -72,7 +72,7 @@ const groups = generateFakerAlbumGroups();
 }
 ::-webkit-scrollbar {
   width: 10px;
-  background-color: transparent;
+  background-color: black;
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
