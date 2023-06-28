@@ -94,7 +94,7 @@ onMounted(async () => {
 }
 ::-webkit-scrollbar {
   width: 10px;
-  background-color: transparent;
+  background-color: black;
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
