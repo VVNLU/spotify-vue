@@ -110,6 +110,7 @@ const login = async () => {
       email.value,
       password.value
     );
+    console.log(userCredential);
     const user = userCredential.user;
     console.log(user);
     router.replace("/");
