@@ -19,7 +19,6 @@
 <script setup>
 import FooterOthers from "../components/FooterOthers.vue";
 import { faker } from "@faker-js/faker";
-import FooterOthersVue from "./FooterOthers.vue";
 // import { getUserTopItems } from "../api/spotify";
 // import { ref, onMounted } from "vue";
 
