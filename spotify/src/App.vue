@@ -1,18 +1,14 @@
 <template>
-  <template v-if="$route.name === 'home'">
-    <header class="header">
-      <HomeNavbar />
-    </header>
-    <aside class="rightBar">
-      <Rightbar />
-    </aside>
-    <TheLayout>
-      <RouterView />
-    </TheLayout>
-  </template>
-  <template v-else>
-    <router-view></router-view>
-  </template>
+  <!-- <template v-if="$route.name === 'home'"> -->
+  <header class="header">
+    <HomeNavbar />
+  </header>
+  <aside class="aside">
+    <Rightbar />
+  </aside>
+  <TheLayout class="theLayout">
+    <RouterView />
+  </TheLayout>
 </template>
 <script setup>
 import TheLayout from "./components/TheLayout.vue";
@@ -22,21 +18,28 @@ import Rightbar from "./components/Rightbar.vue";
 <style scoped>
 * {
   position: relative;
+  background-color: #000;
 }
 .header {
   position: fixed;
   top: 0;
   right: 0;
-  width: 80%;
+  width: 77%;
   z-index: 1;
 }
-.rightBar {
+.aside {
   position: fixed;
   margin: 0;
   top: 0;
   left: 0;
-  width: 20%;
-  height: 100vh;
-  z-index: 2;
+  width: 23%;
+  height: 100%;
+}
+.theLayout {
+  position: fixed;
+  right: 0;
+  top: 9.7%;
+  width: 77%;
+  height: 100%;
 }
 </style>
