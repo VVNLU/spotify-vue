@@ -75,7 +75,7 @@ const btn = () => {
 .searchBar i {
   position: absolute;
   color: white;
-  left: 20px;
+  left: 40px;
 }
 .searchInput {
   width: 360px;
