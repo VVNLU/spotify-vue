@@ -30,6 +30,7 @@ onMounted(async () => {
 </script>
 <style>
 .searchBar {
+  margin-right: 10px;
   padding: 0 20px;
   height: 89.3%;
   overflow: auto;
