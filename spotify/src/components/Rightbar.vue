@@ -28,6 +28,7 @@
           <p class="createTitle">建立你的第一個播放清單</p>
           <p class="createContent">這很簡單,我們會幫你</p>
           <button class="createBtn">建立播放清單</button>
+          <button class="createBtn" @click="getToken()">取得Token</button>
         </div>
         <div class="createlists">
           <p class="createTitle">不妨專注一些Podcast</p>
@@ -52,6 +53,14 @@
     </div>
   </div>
 </template>
+<script setup>
+import { getAccessToken } from "../api/auth";
+
+const getToken = async () => {
+  console.log(getAccessToken());
+  await getAccessToken();
+};
+</script>
 <style scoped>
 .sidebar {
   height: 85%;
