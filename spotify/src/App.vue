@@ -1,19 +1,39 @@
 <template>
-  <!-- <template v-if="$route.name === 'home'"> -->
-  <header class="header">
-    <HomeNavbar />
-  </header>
-  <aside class="aside">
-    <Rightbar />
-  </aside>
-  <TheLayout class="theLayout">
+  <template v-if="contentPages()">
     <RouterView />
-  </TheLayout>
+  </template>
+  <template v-else>
+    <header class="header">
+      <HomeNavbar />
+    </header>
+    <aside class="aside">
+      <Rightbar />
+    </aside>
+    <TheLayout class="theLayout">
+      <RouterView />
+    </TheLayout>
+  </template>
 </template>
 <script setup>
 import TheLayout from "./components/TheLayout.vue";
 import HomeNavbar from "./components/HomeNavbar.vue";
 import Rightbar from "./components/Rightbar.vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+
+const contentPages = () => {
+  const pageArray = [
+    "premium",
+    "login",
+    "register",
+    "forgetpassword",
+    "support",
+    "profileEdit",
+  ];
+  const result = pageArray.includes(route.name);
+  return result;
+};
 </script>
 <style scoped>
 * {
