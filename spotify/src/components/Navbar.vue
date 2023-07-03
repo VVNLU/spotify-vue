@@ -10,11 +10,22 @@
       <router-link to="support">支援</router-link>
       <router-link to="">下載</router-link>
       <span>｜</span>
-      <router-link to="register">註冊</router-link>
-      <router-link to="login">登入</router-link>
+      <div class="premiunLongin" v-if="isLogin">
+        <router-link to="/">登出</router-link>
+      </div>
+      <div class="premiunUnlogin" v-else>
+        <router-link to="register">註冊</router-link>
+        <router-link to="login">登入</router-link>
+      </div>
     </div>
   </div>
 </template>
+<script setup>
+const isLogin = () => {
+  localStorage.get("firebaseToken") !== null;
+  retuen;
+};
+</script>
 <style scoped>
 .navbar {
   display: grid;
@@ -37,8 +48,8 @@ img {
   grid-column: 8/8;
   color: white;
 }
-a,
-span {
+.connect a,
+.connect span {
   display: inline-flex;
   text-decoration: none;
   color: white;
