@@ -51,7 +51,7 @@ onMounted(async () => {
   position: relative;
   display: inline-flex;
   flex-direction: column;
-  margin: 20px 10px;
+  margin: 15px;
   width: 200px;
   height: 270px;
   background-color: #181818;
