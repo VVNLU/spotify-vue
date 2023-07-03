@@ -132,13 +132,13 @@ const signup = async () => {
       email.value,
       password.value
     );
-
     const user = userCredential.user;
-
+    localStorage.setItem("firebaseToken", user.accessToken);
     await updateProfile(user, {
       displayName: name.value,
     });
     router.replace("/");
+    return user;
   } catch (e) {
     throw new Error(e);
   }
@@ -146,6 +146,7 @@ const signup = async () => {
 </script>
 <style>
 .signUp {
+  background-color: #fff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   user-select: none;
 }
