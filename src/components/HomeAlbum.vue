@@ -188,8 +188,8 @@ td {
 .favor {
   display: none;
 }
-.showPlayer:hover,
-.favor:hover {
+.musicList:hover .showPlayer,
+.musicList:hover .favor {
   display: block;
   font-size: 20px;
   text-align: center;
