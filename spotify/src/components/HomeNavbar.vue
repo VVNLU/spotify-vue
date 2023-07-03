@@ -4,7 +4,7 @@
       <a class="action-label icon"> <i class="mdi mdi-chevron-left"></i></a>
       <a class="action-label icon"> <i class="mdi mdi-chevron-right"></i></a>
     </div>
-    <div class="searchBar">
+    <div class="searchBar" v-if="$route.name === 'search'">
       <a class="action-label icon"> <i class="mdi mdi-magnify"></i></a>
       <input
         type="text"
@@ -14,16 +14,16 @@
       />
     </div>
     <div class="connect">
-      <router-link to="premium">Premium</router-link>
-      <router-link to="support">支援</router-link>
-      <router-link to="">下載</router-link>
+      <router-link to="premium" class="routerBar">Premium</router-link>
+      <router-link to="support" class="routerBar">支援</router-link>
+      <router-link to="" class="routerBar">下載</router-link>
       <span>｜</span>
-      <div class="unlogin" v-if="isLogin">
-        <router-link to="register">註冊</router-link>
-        <button @click="btn">登入</button>
+      <div class="loggedIn" v-if="isLogin">
+        <button class="routerBtn">登出</button>
       </div>
-      <div class="login" v-else>
-        <button>登出</button>
+      <div class="unlogin" v-else>
+        <router-link to="register">註冊</router-link>
+        <button class="routerBtn" @click="btn">登入</button>
       </div>
     </div>
   </div>
@@ -33,8 +33,10 @@ import { useRouter } from "vue-router";
 import { ref } from "vue";
 
 const router = useRouter();
-const isLogin = ref(true);
-const isSearch = ref(false);
+
+const isLogin = () => {
+  localStorage.getItem("firebaseToken") !== null;
+};
 
 const btn = () => {
   router.replace("/login");
@@ -98,7 +100,7 @@ const btn = () => {
   color: white;
 }
 a,
-.router-link-active {
+.routerBar {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -106,11 +108,11 @@ a,
   margin: 5px;
 }
 .pagingBtn a:hover,
-.router-link-active:hover {
+.routerBar:hover {
   color: white;
   transform: scale(1.05);
 }
-button {
+.routerBtn {
   width: 95px;
   height: 50px;
   margin: 20px;
@@ -120,7 +122,7 @@ button {
   border: none;
   background: white;
 }
-button:hover {
+.routerBtn:hover {
   transform: scale(1.05);
 }
 </style>
