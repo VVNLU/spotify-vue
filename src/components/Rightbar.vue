@@ -27,9 +27,7 @@
         <div class="createlists">
           <p class="createTitle">建立你的第一個播放清單</p>
           <p class="createContent">這很簡單,我們會幫你</p>
-          <button class="createBtn" @click="getSpotifyToken()">
-            建立播放清單
-          </button>
+          <button class="createBtn">建立播放清單</button>
         </div>
         <div class="createlists">
           <p class="createTitle">不妨專注一些Podcast</p>
@@ -59,13 +57,7 @@
     </div>
   </div>
 </template>
-<script>
-import { getAccessToken } from "../api/auth";
-
-const getSpotifyToken = async () => {
-  await getAccessToken();
-};
-</script>
+<script></script>
 
 <style scoped>
 .sidebar {

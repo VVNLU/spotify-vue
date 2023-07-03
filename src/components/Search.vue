@@ -1,7 +1,7 @@
 `
 <template>
   <div class="searchBar">
-    <div class="browseAll">瀏覽全部</div>
+    <div class="browseAll" @click="getSpotifyToken()">瀏覽全部</div>
     <div class="browseBox" v-for="category in categories">
       <router-link to="genre">
         <img :src="category.icons[0].url" class="categoryImg" />
@@ -15,6 +15,7 @@
 import FooterOthers from "../components/FooterOthers.vue";
 import { onMounted, ref } from "vue";
 import { getCategories } from "../api/spotify";
+import { getAccessToken } from "../api/auth";
 
 const categories = ref([]);
 onMounted(async () => {
@@ -27,6 +28,10 @@ onMounted(async () => {
 //   data2.value = response;
 //   console.log(response);
 // });
+
+const getSpotifyToken = async () => {
+  await getAccessToken();
+};
 </script>
 <style>
 .searchBar {
