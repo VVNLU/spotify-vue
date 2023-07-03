@@ -62,7 +62,7 @@ const groups = generateFakerAlbumGroups();
 .content {
   height: 89.3%;
   overflow: auto;
-  white-space: nowrap;
+  white-space: wrap;
   color: white;
   margin: 0 10px 10px 0;
   background-image: linear-gradient(to bottom, #1d1d1d 10%, #121212);
@@ -137,9 +137,4 @@ const groups = generateFakerAlbumGroups();
 .FooterOthers {
   background-color: transparent;
 }
-/* @media (min-width: 1000px) {
-  .musicBox {
-    overflow: hidden;
-  }
-} */
 </style>
