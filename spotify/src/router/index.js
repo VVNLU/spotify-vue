@@ -14,7 +14,7 @@ import Genre from "../components/Genre.vue";
 import MusicPlayer from "../components/MusicPlayer.vue";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: "/",
