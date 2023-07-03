@@ -4,9 +4,9 @@ export const getAccessToken = async () => {
   const result = await axios.post(
     "https://accounts.spotify.com/api/token",
     {
-      client_id: "CLIENT_ID",
+      client_id: import.meta.env.VITE_CLIENT_ID,
       grant_type: "client_credentials",
-      client_secret: "CLIENT_SECRET",
+      client_secret: import.meta.env.VITE_CLIENT_SECRET,
     },
     {
       headers: {
