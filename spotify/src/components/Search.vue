@@ -20,7 +20,7 @@ const categories = ref([]);
 onMounted(async () => {
   const response = await getCategories();
   categories.value = response.categories.items;
-  //categories.value = (await getCategories()).categories.items;
+  // categories.value = (await getCategories()).categories.items;
 });
 // const data2 = ref();
 // axios.get("browse/categories").then(function (response) {
@@ -43,7 +43,7 @@ onMounted(async () => {
 }
 ::-webkit-scrollbar {
   width: 10px;
-  background-color: black;
+  background-color: transparent;
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
