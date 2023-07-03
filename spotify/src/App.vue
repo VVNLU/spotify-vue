@@ -13,12 +13,14 @@
       <RouterView />
     </TheLayout>
   </template>
+  <!-- <MusicPlayer class="footerMusicPlayer" /> -->
 </template>
 <script setup>
 import TheLayout from "./components/TheLayout.vue";
 import HomeNavbar from "./components/HomeNavbar.vue";
 import Rightbar from "./components/Rightbar.vue";
 import { useRoute } from "vue-router";
+import MusicPlayer from "./components/musicPlayer.vue";
 
 const route = useRoute();
 
@@ -30,6 +32,7 @@ const contentPages = () => {
     "forgetpassword",
     "support",
     "profileEdit",
+    "musicplayer",
   ];
   const result = pageArray.includes(route.name);
   return result;
@@ -49,7 +52,6 @@ const contentPages = () => {
 }
 .aside {
   position: fixed;
-  margin: 0;
   top: 0;
   left: 0;
   width: 23%;
