@@ -39,12 +39,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="musicList" v-for="item in playlistItems">
+          <tr
+            class="musicList"
+            v-for="(item, index) in playlistItems"
+            :key="index"
+          >
             <td>
               <a class="action-label icon"
                 ><i class="mdi mdi-play showPlayer"></i
               ></a>
-              {{ item.items }}
+              <p class="musicListIndex">{{ index + 1 }}</p>
             </td>
             <td class="musicInfo">
               <img :src="item.track.album.images[2].url" />
@@ -86,7 +90,7 @@ onMounted(async () => {
   overflow: auto;
   white-space: wrap;
   margin-right: 10px;
-  background: linear-gradient(to top, #121212 50%, #4e4b4b);
+  background: #121212;
   color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   border-bottom-left-radius: 10px;
@@ -132,6 +136,12 @@ onMounted(async () => {
   display: flex;
   align-items: center;
 }
+.musicListIndex {
+  text-align: center;
+}
+.musicListIndex:hover {
+  display: none;
+}
 .playlistIcon {
   margin-left: 10px;
   display: inline-flex;
@@ -159,15 +169,16 @@ table {
   font-size: 14px;
   width: 100%;
   text-align: left;
-  color: #b3b3b3;
+  color: #fff;
   border-collapse: collapse;
 }
 th {
   position: sticky;
-  top: 75px;
+  top: 0px;
   height: 40px;
   border-bottom: 1px solid #393b3f;
-  background-color: transparent;
+  background-color: #121212;
+  background-attachment: scroll;
 }
 td {
   height: 60px;
