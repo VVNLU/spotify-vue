@@ -37,7 +37,6 @@ const router = useRouter();
 const isLogin = () => {
   return localStorage.getItem("firebaseToken") !== null;
 };
-console.log(isLogin());
 
 const btn = () => {
   router.replace("/login");
