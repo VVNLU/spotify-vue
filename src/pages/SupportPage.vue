@@ -6,7 +6,10 @@
         <div class="customerSupport">
           <p class="SPOTIFY">SPOTIFY 客戶支援</p>
           <p class="supportTitle">我們可以幫上什麼忙嗎？</p>
-          <div class="helpFaster">
+          <div class="logined" v-if="isName" :name="userName">
+            {{ userName() }},你好
+          </div>
+          <div class="helpFaster" v-else>
             <router-link to="login">登入</router-link>可更快獲得協助
           </div>
           <div class="searchInput">
@@ -141,6 +144,11 @@ const userName = () => {
   return result;
 };
 console.log(userName());
+
+const isName = () => {
+  return localStorage.getItem("username") !== null;
+};
+console.log(isName());
 </script>
 <style scoped>
 .supportPage {
@@ -167,6 +175,12 @@ console.log(userName());
 }
 .SPOTIFY {
   color: #a7a7a7;
+}
+.logined {
+  text-align: left;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 50px;
 }
 .supportTitle {
   margin-top: 0;
