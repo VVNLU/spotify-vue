@@ -20,7 +20,7 @@ import TheLayout from "./components/TheLayout.vue";
 import HomeNavbar from "./components/HomeNavbar.vue";
 import Rightbar from "./components/Rightbar.vue";
 import { useRoute } from "vue-router";
-import MusicPlayer from "./components/musicPlayer.vue";
+import Player from "./components/Player.vue";
 
 const route = useRoute();
 
@@ -32,7 +32,7 @@ const contentPages = () => {
     "forgetpassword",
     "support",
     "profileEdit",
-    "musicplayer",
+    "player",
   ];
   const result = pageArray.includes(route.name);
   return result;
@@ -63,5 +63,10 @@ const contentPages = () => {
   top: 9.7%;
   width: 77%;
   height: 100%;
+}
+@media (max-width: 1400px) {
+  .theLayout {
+    top: 15.8%;
+  }
 }
 </style>
