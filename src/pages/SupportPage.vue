@@ -6,9 +6,9 @@
         <div class="customerSupport">
           <p class="SPOTIFY">SPOTIFY 客戶支援</p>
           <p class="supportTitle">我們可以幫上什麼忙嗎？</p>
-          <p class="helpFaster">
+          <div class="helpFaster">
             <router-link to="login">登入</router-link>可更快獲得協助
-          </p>
+          </div>
           <div class="searchInput">
             <input type="text" placeholder="搜尋" /><a class="action-label icon"
               ><i class="mdi mdi-magnify"></i
@@ -136,6 +136,11 @@
 <script setup>
 import Navbar from "../components/Navbar.vue";
 import FooterOthers from "../components/FooterOthers.vue";
+const userName = () => {
+  const result = localStorage.getItem("username");
+  return result;
+};
+console.log(userName());
 </script>
 <style scoped>
 .supportPage {
