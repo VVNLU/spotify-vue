@@ -1,73 +1,75 @@
 <template>
   <div class="supportPage">
-    <div class="support">
-      <Navbar style="background: rgba(0, 0, 0, 0)" />
-      <div class="customerSupport">
-        <p class="SPOTIFY">SPOTIFY 客戶支援</p>
-        <p class="supportTitle">我們可以幫上什麼忙嗎？</p>
-        <p class="helpFaster">
-          <router-link to="login">登入</router-link>可更快獲得協助
-        </p>
-        <div class="searchInput">
-          <input type="text" placeholder="搜尋" /><a class="action-label icon"
-            ><i class="mdi mdi-magnify"></i
-          ></a>
-        </div>
-        <div class="illustrate">
-          <a
-            href="https://support.spotify.com/tw/category/payment-help/"
-            class="pay"
-          >
-            <p>付款說明中心</p>
-            <img
-              src="https://cdn.sanity.io/images/tsbk0zvv/production/a1f5c90620915aba2fc363330ecd1dbff17b7736-128x128.png?w=64&fit=max&auto=format"
-            />
-          </a>
-          <a
-            href="https://support.spotify.com/tw/category/plan-help/"
-            class="plan"
-          >
-            <p>方案說明中心</p>
-            <img
-              src="https://cdn.sanity.io/images/tsbk0zvv/production/10bb309130cdd8dfe85a0e0e130ecdedc0ca22c6-128x128.png?w=64&fit=max&auto=format"
-            />
-          </a>
-          <a
-            href="https://support.spotify.com/tw/category/app-help/"
-            class="App"
-          >
-            <p>App說明中心</p>
-            <img
-              src="https://cdn.sanity.io/images/tsbk0zvv/production/59459c592409b198e88b2b4cd6e4da99306a04fa-128x128.png?w=64&fit=max&auto=format"
-            />
-          </a>
-          <a
-            href="https://support.spotify.com/tw/category/device-help/"
-            class="device"
-          >
-            <p>裝置說明中心</p>
-            <img
-              src="https://cdn.sanity.io/images/tsbk0zvv/production/3e2fdd408d9175cbf6dc77fbd24fa0667aec5867-128x128.png?w=64&fit=max&auto=format"
-            />
-          </a>
-          <a
-            href="https://support.spotify.com/tw/category/safety-privacy/"
-            class="safety"
-          >
-            <p>安全性與隱私權</p>
-            <img
-              src="https://cdn.sanity.io/images/tsbk0zvv/production/c39439e03b41892767854a2dafae387d68e397c5-128x128.png?w=64&fit=max&auto=format"
-            />
-          </a>
-          <a
-            href="https://support.spotify.com/tw/category/account-help/"
-            class="account"
-          >
-            <p>帳戶說明中心</p>
-            <img
-              src="https://cdn.sanity.io/images/tsbk0zvv/production/972abc9b7961e17d356b069c8be9dbaaf3ea51f3-128x128.png?w=64&fit=max&auto=format"
-            />
-          </a>
+    <div class="gradientbar">
+      <Navbar class="supportNavbar" />
+      <div class="support">
+        <div class="customerSupport">
+          <p class="SPOTIFY">SPOTIFY 客戶支援</p>
+          <p class="supportTitle">我們可以幫上什麼忙嗎？</p>
+          <p class="helpFaster">
+            <router-link to="login">登入</router-link>可更快獲得協助
+          </p>
+          <div class="searchInput">
+            <input type="text" placeholder="搜尋" /><a class="action-label icon"
+              ><i class="mdi mdi-magnify"></i
+            ></a>
+          </div>
+          <div class="illustrate">
+            <a
+              href="https://support.spotify.com/tw/category/payment-help/"
+              class="pay"
+            >
+              <p>付款說明中心</p>
+              <img
+                src="https://cdn.sanity.io/images/tsbk0zvv/production/a1f5c90620915aba2fc363330ecd1dbff17b7736-128x128.png?w=64&fit=max&auto=format"
+              />
+            </a>
+            <a
+              href="https://support.spotify.com/tw/category/plan-help/"
+              class="plan"
+            >
+              <p>方案說明中心</p>
+              <img
+                src="https://cdn.sanity.io/images/tsbk0zvv/production/10bb309130cdd8dfe85a0e0e130ecdedc0ca22c6-128x128.png?w=64&fit=max&auto=format"
+              />
+            </a>
+            <a
+              href="https://support.spotify.com/tw/category/app-help/"
+              class="App"
+            >
+              <p>App說明中心</p>
+              <img
+                src="https://cdn.sanity.io/images/tsbk0zvv/production/59459c592409b198e88b2b4cd6e4da99306a04fa-128x128.png?w=64&fit=max&auto=format"
+              />
+            </a>
+            <a
+              href="https://support.spotify.com/tw/category/device-help/"
+              class="device"
+            >
+              <p>裝置說明中心</p>
+              <img
+                src="https://cdn.sanity.io/images/tsbk0zvv/production/3e2fdd408d9175cbf6dc77fbd24fa0667aec5867-128x128.png?w=64&fit=max&auto=format"
+              />
+            </a>
+            <a
+              href="https://support.spotify.com/tw/category/safety-privacy/"
+              class="safety"
+            >
+              <p>安全性與隱私權</p>
+              <img
+                src="https://cdn.sanity.io/images/tsbk0zvv/production/c39439e03b41892767854a2dafae387d68e397c5-128x128.png?w=64&fit=max&auto=format"
+              />
+            </a>
+            <a
+              href="https://support.spotify.com/tw/category/account-help/"
+              class="account"
+            >
+              <p>帳戶說明中心</p>
+              <img
+                src="https://cdn.sanity.io/images/tsbk0zvv/production/972abc9b7961e17d356b069c8be9dbaaf3ea51f3-128x128.png?w=64&fit=max&auto=format"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -140,16 +142,23 @@ import FooterOthers from "../components/FooterOthers.vue";
   color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.gradientbar {
+  background-image: linear-gradient(175deg, #1a9646, #121212 25%);
+}
+.supportNavbar {
+  background: transparent;
+}
 .support {
-  position: relative;
-  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   height: 830px;
-  background-image: linear-gradient(172deg, #1a9646, #121212 20%);
 }
 .customerSupport {
-  position: absolute;
-  left: 350px;
-  width: 550px;
+  width: 30%;
+  text-align: center;
 }
 .SPOTIFY {
   color: #a7a7a7;
@@ -157,9 +166,11 @@ import FooterOthers from "../components/FooterOthers.vue";
 .supportTitle {
   margin-top: 0;
   font-size: 68px;
+  text-align: left;
   font-weight: bold;
 }
 .helpFaster {
+  text-align: left;
   font-size: 24px;
   font-weight: bold;
   color: #a7a7a7;
@@ -275,7 +286,7 @@ import FooterOthers from "../components/FooterOthers.vue";
   flex-direction: column;
   align-items: center;
   height: 340px;
-  width: 100vw;
+  width: 100%;
   background-color: #121212;
 }
 .browseTitle {
@@ -294,5 +305,10 @@ import FooterOthers from "../components/FooterOthers.vue";
 }
 .browseBtn:hover {
   transform: scale(1.05);
+}
+@media (max-width: 1360px) {
+  .customerSupport {
+    width: 45%;
+  }
 }
 </style>
