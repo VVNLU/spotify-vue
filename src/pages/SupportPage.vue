@@ -238,8 +238,8 @@ console.log(isName());
   position: absolute;
   transform: rotate(25deg);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px 0px;
-  left: 105px;
-  top: 10px;
+  left: 130px;
+  top: 25px;
 }
 .illustrate p {
   font-size: 17px;
