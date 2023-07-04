@@ -10,7 +10,7 @@
       <router-link to="support">支援</router-link>
       <router-link to="">下載</router-link>
       <span>｜</span>
-      <div class="premiunLongin" v-if="isLogin">
+      <div class="premiunLongin" v-if="isLogin()">
         <router-link to="/">登出</router-link>
       </div>
       <div class="premiunUnlogin" v-else>
@@ -22,8 +22,7 @@
 </template>
 <script setup>
 const isLogin = () => {
-  localStorage.get("firebaseToken") !== null;
-  retuen;
+  return localStorage.getItem("firebaseToken") !== null;
 };
 </script>
 <style scoped>

@@ -18,7 +18,7 @@
       <router-link to="support" class="routerBar">支援</router-link>
       <router-link to="" class="routerBar">下載</router-link>
       <span>｜</span>
-      <div class="loggedIn" v-if="isLogin">
+      <div class="loggedIn" v-if="isLogin()">
         <button class="routerBtn">登出</button>
       </div>
       <div class="unlogin" v-else>
@@ -35,8 +35,9 @@ import { ref } from "vue";
 const router = useRouter();
 
 const isLogin = () => {
-  localStorage.getItem("firebaseToken") !== null;
+  return localStorage.getItem("firebaseToken") !== null;
 };
+console.log(isLogin());
 
 const btn = () => {
   router.replace("/login");
