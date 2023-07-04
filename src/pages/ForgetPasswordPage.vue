@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <nav class="navbar">
+  <div class="forgetPwsPage">
+    <nav class="pwsNavbar">
       <img
         src="../assets/logo/logo_black.png"
         alt="spotify"
@@ -33,7 +33,10 @@
   </div>
 </template>
 <style scoped>
-.navbar {
+.forgetPwsPage {
+  background-color: #fff;
+}
+.pwsNavbar {
   display: flex;
   justify-content: center;
 }
