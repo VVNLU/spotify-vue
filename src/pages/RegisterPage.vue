@@ -134,9 +134,11 @@ const signup = async () => {
     );
     const user = userCredential.user;
     localStorage.setItem("firebaseToken", user.accessToken);
+    console.log(user);
     await updateProfile(user, {
       displayName: name.value,
     });
+    localStorage.setItem("username", user.displayName);
     router.replace("/");
     return user;
   } catch (e) {
