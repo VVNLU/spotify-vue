@@ -81,12 +81,17 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
-  if (to.name !== "login" && !getAccessToken()) {
-    return { name: "login" };
+  if (
+    to.name !== "login" &&
+    to.name !== "register" &&
+    to.name !== "forgetpassword" &&
+    localStorage.getItem("firebaseToken") === null
+  ) {
+    return { name: "login" || "register" || "forgetpassword" };
   }
 });
 router.beforeEach((to) => {
-  if (to.name === "login" && !getAccessToken()) {
+  if (to.name === "login" && localStorage.getItem("firebaseToken") !== null) {
     return { name: "home" };
   }
 });
