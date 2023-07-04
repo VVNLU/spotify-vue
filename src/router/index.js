@@ -11,7 +11,7 @@ import HomeContent from "../components/HomeContent.vue";
 import HomeAlbum from "../components/HomeAlbum.vue";
 import Search from "../components/Search.vue";
 import Genre from "../components/Genre.vue";
-import MusicPlayer from "../components/MusicPlayer.vue";
+import Player from "../components/Player.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -73,21 +73,21 @@ const router = createRouter({
       component: Genre,
     },
     {
-      path: "/musicplayer",
-      name: "musicplayer",
-      component: MusicPlayer,
+      path: "/player",
+      name: "player",
+      component: Player,
     },
   ],
 });
 
-// router.beforeEach((to) => {
-//   if (to.name !== "login" && !getAccessToken()) {
-//     return { name: "login" };
-//   }
-// });
-// router.beforeEach((to) => {
-//   if (to.name === "login" && !getAccessToken()) {
-//     return { name: "home" };
-//   }
-// });
+router.beforeEach((to) => {
+  if (to.name !== "login" && !getAccessToken()) {
+    return { name: "login" };
+  }
+});
+router.beforeEach((to) => {
+  if (to.name === "login" && !getAccessToken()) {
+    return { name: "home" };
+  }
+});
 export default router;
