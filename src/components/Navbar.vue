@@ -11,7 +11,7 @@
       <router-link to="">下載</router-link>
       <span>｜</span>
       <div class="premiunLongin" v-if="isLogin()">
-        <router-link to="/">登出</router-link>
+        <router-link to="/" @click="isLogout">登出</router-link>
       </div>
       <div class="premiunUnlogin" v-else>
         <router-link to="register">註冊</router-link>
@@ -23,6 +23,13 @@
 <script setup>
 const isLogin = () => {
   return localStorage.getItem("firebaseToken") !== null;
+};
+
+const isLogout = () => {
+  localStorage.clear("firebaseToken");
+  localStorage.clear("token");
+  localStorage.clear("username");
+  router.replace("login");
 };
 </script>
 <style scoped>
