@@ -128,7 +128,7 @@ const tabs = ref([
 }
 .freeOneMonth {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 500px;
   color: white;
   background-color: #1d75de;
@@ -186,7 +186,7 @@ const tabs = ref([
   color: white;
 }
 .benefit {
-  width: 100vw;
+  width: 100%;
   height: 450px;
 }
 .benefitTitle {
@@ -210,7 +210,7 @@ const tabs = ref([
 .premiumTerms {
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   height: 850px;
   background-color: #efefef;
 }
