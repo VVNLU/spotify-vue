@@ -139,7 +139,7 @@ onMounted(async () => {
 .musicListIndex {
   text-align: center;
 }
-.musicListIndex:hover {
+.musicList:hover .musicListIndex {
   display: none;
 }
 .playlistIcon {
@@ -224,5 +224,6 @@ td {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  width: 18em;
 }
 </style>
