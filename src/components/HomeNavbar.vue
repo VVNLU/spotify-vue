@@ -19,7 +19,7 @@
       <router-link to="" class="routerBar">下載</router-link>
       <span>｜</span>
       <div class="loggedIn" v-if="isLogin()">
-        <button class="routerBtn">登出</button>
+        <button class="routerBtn" @click="isLogout">登出</button>
       </div>
       <div class="unlogin" v-else>
         <router-link to="register">註冊</router-link>
@@ -36,6 +36,12 @@ const router = useRouter();
 
 const isLogin = () => {
   return localStorage.getItem("firebaseToken") !== null;
+};
+const isLogout = () => {
+  localStorage.clear("firebaseToken");
+  localStorage.clear("token");
+  localStorage.clear("username");
+  router.replace("login");
 };
 
 const btn = () => {
