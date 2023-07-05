@@ -11,6 +11,9 @@
       <router-link to="">下載</router-link>
       <span>｜</span>
       <div class="premiunLongin" v-if="isLogin()">
+        <span class="loginUserName" v-if="isName" :name="userName">
+          {{ userName() }}</span
+        >
         <router-link to="/" @click="isLogout">登出</router-link>
       </div>
       <div class="premiunUnlogin" v-else>
@@ -30,6 +33,15 @@ const isLogout = () => {
   localStorage.clear("token");
   localStorage.clear("username");
   router.replace("login");
+};
+
+const userName = () => {
+  const result = localStorage.getItem("username");
+  return result;
+};
+
+const isName = () => {
+  return localStorage.getItem("username") !== null;
 };
 </script>
 <style scoped>
