@@ -33,6 +33,7 @@
             v-model="password"
             :type="showPassword ? 'text' : 'password'"
             placeholder="密碼"
+            minlength="6"
           />
           <a
             id="showEye"

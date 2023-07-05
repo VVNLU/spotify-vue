@@ -32,6 +32,7 @@
           v-model="email"
           type="email"
           placeholder="輸入你的電子郵件地址"
+          minlength="6"
         />
         <label for="password" class="passwordTitle">創建密碼</label>
         <input
