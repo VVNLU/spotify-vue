@@ -88,7 +88,9 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { auth } from "../firebase/index.js";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const email = ref("");
 const password = ref("");
 const showPassword = ref(false);
@@ -110,8 +112,9 @@ const login = async () => {
       email.value,
       password.value
     );
-    console.log(userCredential);
     const user = userCredential.user;
+    localStorage.setItem("firebaseToken", user.accessToken);
+    localStorage.setItem("username", user.displayName);
     console.log(user);
     router.replace("/");
   } catch (e) {
@@ -124,7 +127,9 @@ const GoogleLogin = async () => {
     const result = await signInWithPopup(auth, providerGoogle);
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
+    console.log(token());
     const user = result.user;
+    router.replace("/");
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
