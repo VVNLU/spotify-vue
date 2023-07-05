@@ -216,4 +216,10 @@
   grid-column: 5/6;
   margin-right: 40px;
 }
+@media (max-width: 1570px) {
+  .socialMedia i {
+    display: flex;
+    width: 30px;
+  }
+}
 </style>
