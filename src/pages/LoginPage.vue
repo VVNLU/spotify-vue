@@ -89,6 +89,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase/index.js";
 import { useRouter } from "vue-router";
+import { getAccessToken } from "../api/auth";
 
 const router = useRouter();
 const email = ref("");
@@ -113,6 +114,7 @@ const login = async () => {
       password.value
     );
     const user = userCredential.user;
+    const getSpotifyToken = await getAccessToken();
     localStorage.setItem("firebaseToken", user.accessToken);
     localStorage.setItem("username", user.displayName);
     console.log(user);

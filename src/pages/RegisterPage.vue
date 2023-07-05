@@ -118,6 +118,7 @@ import { ref } from "vue";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase/index";
 import { useRouter } from "vue-router";
+import { getAccessToken } from "../api/auth";
 
 const name = ref("");
 const email = ref("");
@@ -133,6 +134,7 @@ const signup = async () => {
       password.value
     );
     const user = userCredential.user;
+    const getSpotifyToken = await getAccessToken();
     localStorage.setItem("firebaseToken", user.accessToken);
     console.log(user);
     await updateProfile(user, {
