@@ -10,6 +10,12 @@ export const getCategoryPlaylists = async () => {
   const response = await api.get("browse/categories/toplists/playlists");
   return response.data;
 };
+export const getHomeCategoryPlaylists = async () => {
+  const response = await api.get(
+    "browse/categories/0JQ5DAqbMKFEC4WFtoNRpw/playlists"
+  );
+  return response.data;
+};
 
 export const getPlaylistItems = async () => {
   const response = await api.get("playlists/37i9dQZF1DWWqC43bGTcPc/tracks");

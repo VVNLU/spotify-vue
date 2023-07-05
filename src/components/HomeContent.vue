@@ -1,15 +1,13 @@
 <template>
   <div class="content">
-    <div class="focus" v-for="group in groups">
-      <div class="playlistTitle">播放清單</div>
-      <div class="musicBox" v-for="item in group">
+    <div class="focus">
+      <div class="playlistTitle">熱門清單</div>
+      <div class="musicBox" v-for="item in homeCategoryPlaylists">
         <router-link to="">
           <a class="action-label icon"><i class="mdi mdi-play-circle"></i></a>
-          <img :src="item.image" />
-          <span class="musicTitle">{{ item.fullName }}</span>
-          <span class="musicContent"
-            >Artist．{{ item.genre }}</span
-          ></router-link
+          <img :src="item.images[0].url" />
+          <span class="musicTitle">{{ item.name }}</span>
+          <span class="musicContent">{{ item.description }}</span></router-link
         >
       </div>
     </div>
@@ -18,11 +16,13 @@
 </template>
 <script setup>
 import FooterOthers from "../components/FooterOthers.vue";
-import { faker } from "@faker-js/faker";
+import { getHomeCategoryPlaylists } from "../api/spotify";
+import { ref, onMounted } from "vue";
+// import { faker } from "@faker-js/faker";
 // import { getUserTopItems } from "../api/spotify";
-// import { ref, onMounted } from "vue";
 
 // const userTopItems = ref([]);
+const homeCategoryPlaylists = ref([]);
 
 // onMounted(async () => {
 //   const response = await getUserTopItems();
@@ -30,33 +30,39 @@ import { faker } from "@faker-js/faker";
 //   // userTopItems.value = response;
 // });
 
-const generateFakerAlbums = () => {
-  const albums = [];
-  for (let i = 1; i <= 6; i++) {
-    const image = faker.image.url({
-      height: 200,
-      width: 200,
-    });
-    const fullName = faker.person.fullName();
-    const genre = faker.music.genre();
-    albums.push({
-      image: image,
-      fullName: fullName,
-      genre: genre,
-    });
-  }
-  return albums;
-};
+onMounted(async () => {
+  const response = await getHomeCategoryPlaylists();
+  console.log(response);
+  homeCategoryPlaylists.value = response.playlists.items;
+});
 
-const generateFakerAlbumGroups = () => {
-  const groups = [];
-  for (let x = 1; x <= 3; x++) {
-    const data = generateFakerAlbums();
-    groups.push(data);
-  }
-  return groups;
-};
-const groups = generateFakerAlbumGroups();
+// const generateFakerAlbums = () => {
+//   const albums = [];
+//   for (let i = 1; i <= 6; i++) {
+//     const image = faker.image.url({
+//       height: 200,
+//       width: 200,
+//     });
+//     const fullName = faker.person.fullName();
+//     const genre = faker.music.genre();
+//     albums.push({
+//       image: image,
+//       fullName: fullName,
+//       genre: genre,
+//     });
+//   }
+//   return albums;
+// };
+
+// const generateFakerAlbumGroups = () => {
+//   const groups = [];
+//   for (let x = 1; x <= 3; x++) {
+//     const data = generateFakerAlbums();
+//     groups.push(data);
+//   }
+//   return groups;
+// };
+// const groups = generateFakerAlbumGroups();
 </script>
 <style scoped>
 .content {
@@ -133,6 +139,10 @@ const groups = generateFakerAlbumGroups();
   width: 170px;
   color: grey;
   font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .FooterOthers {
   background-color: transparent;
