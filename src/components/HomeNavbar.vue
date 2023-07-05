@@ -19,6 +19,9 @@
       <router-link to="" class="routerBar">下載</router-link>
       <span>｜</span>
       <div class="loggedIn" v-if="isLogin()">
+        <span class="loginUserName" v-if="isName" :name="userName">
+          {{ userName() }}</span
+        >
         <button class="routerBtn" @click="isLogout">登出</button>
       </div>
       <div class="unlogin" v-else>
@@ -42,6 +45,15 @@ const isLogout = () => {
   localStorage.clear("token");
   localStorage.clear("username");
   router.replace("login");
+};
+
+const userName = () => {
+  const result = localStorage.getItem("username");
+  return result;
+};
+
+const isName = () => {
+  return localStorage.getItem("username") !== null;
 };
 
 const btn = () => {
