@@ -41,7 +41,7 @@
           placeholder="創建密碼"
           minlength="6"
         />
-        <span class="showWords">密碼需6碼以上。</span>
+        <span class="showWords">密碼需6個字以上。</span>
         <label for="name" class="nameTitle">我們該如何稱呼你？</label>
         <input
           id="name"
@@ -146,7 +146,7 @@ const signup = async () => {
     router.replace("/");
     return user;
   } catch (e) {
-    alert("密碼需6個字元以上");
+    alert("密碼需6個字以上");
     throw new Error(e);
   }
 };
