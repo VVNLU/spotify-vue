@@ -32,7 +32,6 @@
           v-model="email"
           type="email"
           placeholder="輸入你的電子郵件地址"
-          minlength="6"
         />
         <label for="password" class="passwordTitle">創建密碼</label>
         <input
@@ -40,6 +39,7 @@
           v-model="password"
           type="password"
           placeholder="創建密碼"
+          minlength="6"
         />
         <label for="name" class="nameTitle">我們該如何稱呼你？</label>
         <input
