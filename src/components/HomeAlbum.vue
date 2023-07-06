@@ -21,6 +21,7 @@
       <a class="action-label icon"
         ><i class="mdi mdi-heart-outline favorPlaylist"></i
       ></a>
+      <audio :src="currentMusic" controls autoplay></audio>
     </div>
     <div class="musicGroups">
       <table>
@@ -43,6 +44,7 @@
             class="musicList"
             v-for="(item, index) in playlistItems"
             :key="index"
+            @click="setCurrentMusic(item.track.preview_url)"
           >
             <td>
               <a class="action-label icon"
@@ -77,7 +79,11 @@ import { onMounted, ref } from "vue";
 import { dateToRelative } from "../utils/date";
 
 const playlistItems = ref([]);
+const currentMusic = ref();
 
+const setCurrentMusic = (url) => {
+  currentMusic.value = url;
+};
 onMounted(async () => {
   const response = await getPlaylistItems();
   console.log(response);
