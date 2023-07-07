@@ -2,7 +2,11 @@
   <div class="content">
     <div class="focus">
       <div class="playlistTitle">熱門清單</div>
-      <div class="musicBox" v-for="item in homeCategoryPlaylists">
+      <div
+        class="musicBox"
+        v-for="item in homeCategoryPlaylists"
+        @click="routerPage"
+      >
         <router-link to="">
           <a class="action-label icon"><i class="mdi mdi-play-circle"></i></a>
           <img :src="item.images[0].url" />
@@ -18,6 +22,7 @@
 import FooterOthers from "../components/FooterOthers.vue";
 import { getHomeCategoryPlaylists } from "../api/spotify";
 import { ref, onMounted } from "vue";
+import router from "../router";
 // import { faker } from "@faker-js/faker";
 // import { getUserTopItems } from "../api/spotify";
 
@@ -63,6 +68,10 @@ onMounted(async () => {
 //   return groups;
 // };
 // const groups = generateFakerAlbumGroups();
+
+const routerPage = () => {
+  router.replace("/genre");
+};
 </script>
 <style scoped>
 .content {
