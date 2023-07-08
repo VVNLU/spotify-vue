@@ -24,6 +24,7 @@ onMounted(async () => {
 </script>
 <style scoped>
 .genre {
+  margin-right: 10px;
   padding: 0 20px;
   height: 89.3%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
