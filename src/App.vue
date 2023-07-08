@@ -13,14 +13,12 @@
       <RouterView />
     </TheLayout>
   </template>
-  <!-- <MusicPlayer class="footerMusicPlayer" /> -->
 </template>
 <script setup>
 import TheLayout from "./components/TheLayout.vue";
 import HomeNavbar from "./components/HomeNavbar.vue";
 import Rightbar from "./components/Rightbar.vue";
 import { useRoute } from "vue-router";
-import Player from "./components/Player.vue";
 
 const route = useRoute();
 
