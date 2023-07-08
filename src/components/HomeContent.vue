@@ -2,12 +2,8 @@
   <div class="content">
     <div class="focus">
       <div class="playlistTitle">熱門清單</div>
-      <div
-        class="musicBox"
-        v-for="item in homeCategoryPlaylists"
-        @click="routerPage"
-      >
-        <router-link to="">
+      <div class="musicBox" v-for="item in homeCategoryPlaylists">
+        <router-link to="/genre">
           <a class="action-label icon"><i class="mdi mdi-play-circle"></i></a>
           <img :src="item.images[0].url" />
           <span class="musicTitle">{{ item.name }}</span>
@@ -68,10 +64,6 @@ onMounted(async () => {
 //   return groups;
 // };
 // const groups = generateFakerAlbumGroups();
-
-const routerPage = () => {
-  router.replace("/genre");
-};
 </script>
 <style scoped>
 .content {
