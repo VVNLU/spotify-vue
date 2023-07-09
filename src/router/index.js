@@ -27,7 +27,7 @@ const router = createRouter({
       component: HomeContent,
     },
     {
-      path: "/album",
+      path: "/album/:id",
       name: "album",
       component: HomeAlbum,
     },
@@ -68,7 +68,7 @@ const router = createRouter({
       component: ProfileEdittingPage,
     },
     {
-      path: "/genre",
+      path: "/genre/:id",
       name: "genre",
       component: Genre,
     },

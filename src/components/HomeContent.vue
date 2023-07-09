@@ -3,7 +3,7 @@
     <div class="focus">
       <div class="playlistTitle">熱門清單</div>
       <div class="musicBox" v-for="item in homeCategoryPlaylists">
-        <router-link to="/genre">
+        <router-link :to="{ name: 'album', params: { id: item.id } }">
           <a class="action-label icon"><i class="mdi mdi-play-circle"></i></a>
           <img :src="item.images[0].url" />
           <span class="musicTitle">{{ item.name }}</span>

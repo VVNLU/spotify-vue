@@ -2,7 +2,7 @@
   <div class="genre">
     <div class="generBigTitle">華語流行</div>
     <div class="genreBox" v-for="item in categoryPlaylists">
-      <router-link to="album">
+      <router-link :to="{ name: 'album', params: { id: item.id } }">
         <a class="action-label icon"><i class="mdi mdi-play-circle"></i></a>
         <img :src="item.images[0].url" class="albumImg" />
         <span class="genreTitle">{{ item.name }}</span>
@@ -14,10 +14,12 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { getCategoryPlaylists } from "../api/spotify";
+import { useRoute } from "vue-router";
 
+const route = useRoute();
 const categoryPlaylists = ref([]);
 onMounted(async () => {
-  const response = await getCategoryPlaylists();
+  const response = await getCategoryPlaylists(route.params.id);
   console.log(response);
   categoryPlaylists.value = response.playlists.items;
 });

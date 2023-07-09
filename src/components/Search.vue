@@ -1,9 +1,8 @@
-`
 <template>
   <div class="searchBar">
     <div class="browseAll">瀏覽全部</div>
     <div class="browseBox" v-for="category in categories">
-      <router-link to="genre">
+      <router-link :to="{ name: 'genre', params: { id: category.id } }">
         <img :src="category.icons[0].url" class="categoryImg" />
         <span class="browseContent">{{ category.name }}</span></router-link
       >

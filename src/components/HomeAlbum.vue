@@ -1,5 +1,6 @@
 <template>
   <div class="albums">
+    {{ showAlbumImage }}
     <div class="musicalbum">
       <img src="../assets/album/peacefulPiano.png" />
       <div class="albumInfo">
@@ -75,9 +76,11 @@
 </template>
 <script setup>
 import { getPlaylistItems } from "../api/spotify";
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { dateToRelative } from "../utils/date";
+import { useRoute } from "vue-router";
 
+const route = useRoute();
 const playlistItems = ref([]);
 const currentMusic = ref();
 
@@ -85,7 +88,7 @@ const setCurrentMusic = (url) => {
   currentMusic.value = url;
 };
 onMounted(async () => {
-  const response = await getPlaylistItems();
+  const response = await getPlaylistItems(route.params.id);
   console.log(response);
   playlistItems.value = response.items;
 });

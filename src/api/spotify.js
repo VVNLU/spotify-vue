@@ -6,8 +6,8 @@ export const getCategories = async () => {
   return response.data;
 };
 
-export const getCategoryPlaylists = async () => {
-  const response = await api.get("browse/categories/toplists/playlists");
+export const getCategoryPlaylists = async (id) => {
+  const response = await api.get(`browse/categories/${id}/playlists`);
   return response.data;
 };
 export const getHomeCategoryPlaylists = async () => {
@@ -17,8 +17,8 @@ export const getHomeCategoryPlaylists = async () => {
   return response.data;
 };
 
-export const getPlaylistItems = async () => {
-  const response = await api.get("playlists/37i9dQZF1DWWqC43bGTcPc/tracks");
+export const getPlaylistItems = async (id) => {
+  const response = await api.get(`playlists/${id}/tracks`);
   return response.data;
 };
 
