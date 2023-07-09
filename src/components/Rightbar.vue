@@ -10,7 +10,7 @@
         >
       </div>
       <div class="routerBtn searchRouter">
-        <router-link to="search">
+        <router-link to="/search">
           <a class="action-label icon"><i class="mdi mdi-magnify"></i></a>
           <span class="searchTitle">搜尋</span>
         </router-link>
