@@ -12,8 +12,7 @@ npx nuxi init Spotify-vue
 ```
 yarn install
 ```
-安裝所有依賴項目後，專案目錄中生成了 `node_mdoules` 資料夾
-確認您的專案已成功安裝所以依賴後，即可執行命令：
+安裝所有依賴項目後，專案目錄中生成了 `node_mdoules` 資料夾，確認您的專案已成功安裝所以依賴後，即可執行命令：
 ```
 yarn dev
 ```
