@@ -72,7 +72,7 @@ onMounted(async () => {
 }
 .genreBox i {
   position: absolute;
-  top: 120px;
+  top: 140px;
   right: 20px;
   font-size: 50px;
   display: none;
