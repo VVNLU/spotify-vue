@@ -54,13 +54,15 @@
               <p class="musicListIndex">{{ index + 1 }}</p>
             </td>
             <td class="musicInfo">
-              <img :src="item.track.album.images[2].url" />
+              <img :src="item.track?.album?.images[2]?.url" />
               <div class="musicName">
-                {{ item.track.name }}<br />
-                <span class="singerName">{{ item.track.artists[0].name }}</span>
+                {{ item.track?.name }}<br />
+                <span class="singerName">{{
+                  item.track?.artists[0].name
+                }}</span>
               </div>
             </td>
-            <td>{{ item.track.album.name }}</td>
+            <td>{{ item.track?.album.name }}</td>
             <td>{{ dateToRelative(item.added_at) }}</td>
             <td>
               <a class="action-label icon"
@@ -89,7 +91,7 @@ const setCurrentMusic = (url) => {
 };
 onMounted(async () => {
   const response = await getPlaylistItems(route.params.id);
-  console.log(response);
+  console.log(response.items);
   playlistItems.value = response.items;
 });
 </script>
