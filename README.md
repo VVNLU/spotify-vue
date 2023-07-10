@@ -24,7 +24,7 @@ yarn dev
 
 ## 注意事項
 
-因使用 [Spotify Develpoers API](https://developer.spotify.com/ "Spotify Develpoers API")，部分音樂檔及播放清單無法預覽播放及開啟。
+因使用 [Spotify Develpoers API](https://developer.spotify.com/ "Spotify Develpoers API")，部分音樂檔及播放清單無法預覽播放及開啟；API 限制為60分鐘。
 
 ## 實現功能
 
@@ -33,12 +33,12 @@ yarn dev
 - 聆聽30秒的預覽音樂
 - 上下頁
 - 查看Premium、支援頁面
+- 60分鐘後自動登出及刪除 Token 功能
 
 ## 未實現功能（進行中）
 - 搜尋功能
 - 建立播放清單
 - sidebar 可調整
-- 60分鐘後自動登出及刪除 Token 功能
 - 修改個人資料
 - RWD 響應式設計
 - 忘記密碼提示
