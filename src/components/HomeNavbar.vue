@@ -1,8 +1,12 @@
 <template>
   <div class="navbar">
     <div class="pagingBtn">
-      <a class="action-label icon"> <i class="mdi mdi-chevron-left"></i></a>
-      <a class="action-label icon"> <i class="mdi mdi-chevron-right"></i></a>
+      <a class="action-label icon">
+        <i class="mdi mdi-chevron-left" @click="goBack()"></i
+      ></a>
+      <a class="action-label icon">
+        <i class="mdi mdi-chevron-right" @click="goAhead()"></i
+      ></a>
     </div>
     <div class="searchBar" v-if="$route.name === 'search'">
       <a class="action-label icon"> <i class="mdi mdi-magnify"></i></a>
@@ -11,6 +15,7 @@
         class="searchInput"
         id="searchInput"
         placeholder="想聽什麼？"
+        v-model="searchStore.searchTerm"
       />
     </div>
     <div class="connect">
@@ -34,7 +39,9 @@
 <script setup>
 import { useRouter } from "vue-router";
 import { ref } from "vue";
+import { useSearchStore } from "../stores/search";
 
+const searchStore = useSearchStore();
 const router = useRouter();
 
 const isLogin = () => {
@@ -58,6 +65,13 @@ const isName = () => {
 
 const btn = () => {
   router.replace("/login");
+};
+
+const goBack = () => {
+  return router.go(-1);
+};
+const goAhead = () => {
+  return router.go(+1);
 };
 </script>
 <style scoped>
