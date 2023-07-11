@@ -4,6 +4,8 @@
 
 [![專案截圖](https://i.imgur.com/1P2frPw.png "專案截圖")](https://i.imgur.com/1P2frPw.png "專案截圖")
 
+Demo：https://spotify-vue-lac.vercel.app （測試帳號：test123@test.com；密碼：test123）
+
 ## 專案說明
 
 使用 [Firebase](https://firebase.google.com/docs/web/setup?hl=zh&authuser=1&_gl=1*ux3033*_ga*MTU4MDQ3MDQ3My4xNjg0NTUwNjYz*_ga_CW55HF8NVT*MTY4OTA0NzYzOS4yNi4xLjE2ODkwNDc3ODIuMC4wLjA.) 來實現登入、註冊、使用者資料管理，音樂來源使用 [Axios](https://www.npmjs.com/package/axios) 串接 [Spotify web API](https://developer.spotify.com/documentation/web-api)；末使用 CSS-frameworks，頁面皆為手刻。
