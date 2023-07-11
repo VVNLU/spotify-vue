@@ -1,13 +1,13 @@
 <template>
   <div class="genre">
-    <div class="generBigTitle">華語流行</div>
+    <div class="generBigTitle">{{ nameStore.names }}</div>
     <div class="genreBox" v-for="item in categoryPlaylists">
-      <router-link :to="{ name: 'album', params: { id: item.id } }">
+      <div class="getAlbum" @click="getAlbum(item)">
         <a class="action-label icon"><i class="mdi mdi-play-circle"></i></a>
         <img :src="item.images[0].url" class="albumImg" />
         <span class="genreTitle">{{ item.name }}</span>
-        <span class="genreContent">{{ item.description }}</span></router-link
-      >
+        <span class="genreContent">{{ item.description }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -15,7 +15,10 @@
 import { onMounted, ref } from "vue";
 import { getCategoryPlaylists } from "../api/spotify";
 import { useRoute } from "vue-router";
+import { useNameStore } from "../stores/name";
+import router from "../router";
 
+const nameStore = useNameStore();
 const route = useRoute();
 const categoryPlaylists = ref([]);
 onMounted(async () => {
@@ -23,6 +26,13 @@ onMounted(async () => {
   console.log(response);
   categoryPlaylists.value = response.playlists.items;
 });
+
+const getAlbum = (item) => {
+  nameStore.title = item.name;
+  nameStore.describe = item.description;
+  nameStore.image = item.images[0].url;
+  router.replace({ name: "album", params: { id: item.id } });
+};
 </script>
 <style scoped>
 .genre {

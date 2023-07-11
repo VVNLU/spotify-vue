@@ -1,17 +1,16 @@
 <template>
   <div class="albums">
-    {{ showAlbumImage }}
     <div class="musicalbum">
-      <img src="../assets/album/peacefulPiano.png" />
+      <img :src="nameStore.image" />
       <div class="albumInfo">
         <p class="albumList">播放清單</p>
-        <p class="albumTitle">Peaceful Piano</p>
+        <p class="albumTitle">{{ nameStore.title }}</p>
         <p class="albumContent">
-          Peaceful piano to help you slow down, breathe, and relax.
+          {{ nameStore.describe }}
         </p>
         <div class="albumMessage">
           <img src="../assets/logo/logo_green.png" alt="" />Spotify
-          <span>．123人按讚．100首歌曲,大約3小時</span>
+          <span>．156人按讚．50首歌曲,大約25分鐘</span>
         </div>
       </div>
     </div>
@@ -78,10 +77,13 @@
 </template>
 <script setup>
 import { getPlaylistItems } from "../api/spotify";
-import { computed, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 import { dateToRelative } from "../utils/date";
 import { useRoute } from "vue-router";
+import { useNameStore } from "../stores/name";
 
+const nameStore = useNameStore();
+console.log(nameStore.image);
 const route = useRoute();
 const playlistItems = ref([]);
 const currentMusic = ref();

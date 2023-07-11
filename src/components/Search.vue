@@ -2,10 +2,10 @@
   <div class="searchBar">
     <div class="browseAll">瀏覽全部</div>
     <div class="browseBox" v-for="category in categories">
-      <router-link :to="{ name: 'genre', params: { id: category.id } }">
+      <div class="getGenre" @click="getGenre(category)">
         <img :src="category.icons[0].url" class="categoryImg" />
-        <span class="browseContent">{{ category.name }}</span></router-link
-      >
+        <span class="browseContent">{{ category.name }}</span>
+      </div>
     </div>
     <FooterOthers style="background-color: transparent" />
   </div>
@@ -14,7 +14,10 @@
 import FooterOthers from "../components/FooterOthers.vue";
 import { onMounted, ref } from "vue";
 import { getCategories } from "../api/spotify";
+import router from "../router";
+import { useNameStore } from "../stores/name";
 
+const nameStore = useNameStore();
 const categories = ref([]);
 onMounted(async () => {
   const response = await getCategories();
@@ -26,6 +29,11 @@ onMounted(async () => {
 //   data2.value = response;
 //   console.log(response);
 // });
+
+const getGenre = (category) => {
+  nameStore.names = category.name;
+  router.replace({ name: "genre", params: { id: category.id } });
+};
 </script>
 <style>
 .searchBar {
