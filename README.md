@@ -19,7 +19,8 @@
 
 - Spotify
   使用 `VITE_CLIENT_ID` 和 `VITE_CLIENT_SECRET` 設定 Spotify 的 Client ID 和 Client secret。如果你沒有 Client ID 和 Client secret 可以請參考 [Spotify Developer](https://developer.spotify.com/documentation/web-api)。
-  注意: Spotify 的 access token 有效訪問時間只有 `1 小時`。
+
+  注意： Spotify 的 access token 有效訪問時間只有 `1 小時`。
 
 - Firebase
   需設定 Firebase SDK 的配置，如果沒有 Firebase SDK 的配置，請參考[Firebase doc](https://firebase.google.com/docs/web/setup?hl=zh&authuser=1&_gl=1*ux3033*_ga*MTU4MDQ3MDQ3My4xNjg0NTUwNjYz*_ga_CW55HF8NVT*MTY4OTA0NzYzOS4yNi4xLjE2ODkwNDc3ODIuMC4wLjA.)。
