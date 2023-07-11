@@ -122,7 +122,9 @@ onMounted(async () => {
   display: flex;
 }
 .musicalbum > img {
+  max-width: 100%;
   width: 25%;
+  height: 25%;
   margin: 30px 0 0 20px;
   box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
 }
@@ -131,19 +133,24 @@ onMounted(async () => {
   line-height: 0px;
 }
 .albumInfo img {
-  width: 40px;
+  width: 30px;
 }
 .albumList {
   font-size: 14px;
   font-weight: bold;
+  margin: 0px;
 }
 .albumTitle {
-  font-size: 80px;
+  font-size: 60px;
   font-weight: bold;
+  margin: 55px 0;
 }
 .albumContent {
   color: #cfd4d9;
   font-size: 14px;
+  width: 90%;
+  word-wrap: break-word;
+  line-height: 20px;
 }
 .albumMessage {
   display: flex;
