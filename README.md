@@ -95,5 +95,5 @@ $ yarn  dev
 
 ### 其他
 
-- 對專案有任何問題或提議可以開 [issues](https://github.com/VVNLU/spotify-vue/issues) 或與我聯繫 e-mail：vivianlu512@mail.com
+- 對專案有任何問題或提議可以開 [issues](https://github.com/VVNLU/spotify-vue/issues) 或與我聯繫 e-mail：vivianlu512@gmail.com
 - 可能會在 package.json 中看到沒在用到，但卻安裝的 lib。例如： `faker-js/faker`，這是在還未串接 Spotify API 前練習時做假資料用的。
