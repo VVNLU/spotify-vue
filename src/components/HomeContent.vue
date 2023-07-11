@@ -3,12 +3,12 @@
     <div class="focus">
       <div class="playlistTitle">熱門清單</div>
       <div class="musicBox" v-for="item in homeCategoryPlaylists">
-        <router-link :to="{ name: 'album', params: { id: item.id } }">
+        <div class="getAlbum" @click="getAlbum(item)">
           <a class="action-label icon"><i class="mdi mdi-play-circle"></i></a>
           <img :src="item.images[0].url" />
           <span class="musicTitle">{{ item.name }}</span>
-          <span class="musicContent">{{ item.description }}</span></router-link
-        >
+          <span class="musicContent">{{ item.description }}</span>
+        </div>
       </div>
     </div>
     <FooterOthers class="FooterOthers" />
@@ -19,11 +19,13 @@ import FooterOthers from "../components/FooterOthers.vue";
 import { getHomeCategoryPlaylists } from "../api/spotify";
 import { ref, onMounted } from "vue";
 import router from "../router";
+import { useNameStore } from "../stores/name";
 // import { faker } from "@faker-js/faker";
 // import { getUserTopItems } from "../api/spotify";
 
 // const userTopItems = ref([]);
 const homeCategoryPlaylists = ref([]);
+const nameStore = useNameStore();
 
 // onMounted(async () => {
 //   const response = await getUserTopItems();
@@ -31,6 +33,12 @@ const homeCategoryPlaylists = ref([]);
 //   // userTopItems.value = response;
 // });
 
+const getAlbum = (item) => {
+  nameStore.title = item.name;
+  nameStore.describe = item.description;
+  nameStore.image = item.images[0].url;
+  router.replace({ name: "album", params: { id: item.id } });
+};
 onMounted(async () => {
   const response = await getHomeCategoryPlaylists();
   console.log(response);
