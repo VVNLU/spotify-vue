@@ -2,6 +2,8 @@
 
 [Spotify-vue](https://github.com/VVNLU/spotify-vue) 是使用 [Vite](https://vitejs.dev/) 建立專案，以模仿 [Spotify web player](https://open.spotify.com/)。
 
+[![專案截圖](https://i.imgur.com/1P2frPw.png "專案截圖")](https://i.imgur.com/1P2frPw.png "專案截圖")
+
 ## 專案說明
 
 使用 [Firebase](https://firebase.google.com/docs/web/setup?hl=zh&authuser=1&_gl=1*ux3033*_ga*MTU4MDQ3MDQ3My4xNjg0NTUwNjYz*_ga_CW55HF8NVT*MTY4OTA0NzYzOS4yNi4xLjE2ODkwNDc3ODIuMC4wLjA.) 來實現登入、註冊、使用者資料管理，音樂來源使用 [Axios](https://www.npmjs.com/package/axios) 串接 [Spotify web API](https://developer.spotify.com/documentation/web-api)；末使用 CSS-frameworks，頁面皆為手刻。
@@ -68,6 +70,7 @@ $ yarn  dev
 - Firebase / Vuefire
 - Mdi (Material Design Icons)
 - Eslint / Prettier
+- Pinia
 
 ## 功能
 
