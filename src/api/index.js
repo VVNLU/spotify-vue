@@ -26,19 +26,17 @@ request.interceptors.response.use(
     }
   },
   (error) => {
-    if (error.response.status) {
-      switch (error.response.status) {
-        case 401:
-          alert("超過API限制時間，請重新登入！");
-          localStorage.removeItem("username");
-          localStorage.removeItem("firebaseToken");
-          localStorage.removeItem("token");
-          setTimeout(() => {
-            router.replace({
-              path: "/login",
-            });
-          }, 5000);
-      }
+    switch (error.response.status) {
+      case 401:
+        alert("超過API限制時間，請重新登入！");
+        localStorage.removeItem("username");
+        localStorage.removeItem("firebaseToken");
+        localStorage.removeItem("token");
+        router.replace({
+          path: "/login",
+        });
+        break;
+      default:
     }
     return Promise.reject(error.response);
   }
