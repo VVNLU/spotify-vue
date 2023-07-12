@@ -83,7 +83,6 @@ import { useRoute } from "vue-router";
 import { useNameStore } from "../stores/name";
 
 const nameStore = useNameStore();
-console.log(nameStore.image);
 const route = useRoute();
 const playlistItems = ref([]);
 const currentMusic = ref();
