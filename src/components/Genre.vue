@@ -49,7 +49,7 @@ const getAlbum = (item) => {
 }
 ::-webkit-scrollbar {
   width: 10px;
-  background-color: black;
+  background-color: transparent;
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
