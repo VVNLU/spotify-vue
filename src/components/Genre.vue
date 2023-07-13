@@ -21,6 +21,7 @@ import router from "../router";
 const nameStore = useNameStore();
 const route = useRoute();
 const categoryPlaylists = ref([]);
+
 onMounted(async () => {
   const response = await getCategoryPlaylists(route.params.id);
   console.log(response);
