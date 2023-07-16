@@ -12,7 +12,7 @@
           <div class="helpFaster" v-else>
             <router-link to="login">登入</router-link>可更快獲得協助
           </div>
-          <div class="searchInput">
+          <div class="supportSearchInput">
             <input type="text" placeholder="搜尋" /><a class="action-label icon"
               ><i class="mdi mdi-magnify"></i
             ></a>
@@ -198,10 +198,10 @@ console.log(isName());
 .helpFaster a {
   color: white;
 }
-.searchInput {
+.supportSearchInput {
   position: relative;
 }
-.searchInput input {
+.supportSearchInput input {
   width: 100%;
   height: 45px;
   border-radius: 5px;
@@ -209,7 +209,7 @@ console.log(isName());
   background-color: #fff;
   text-indent: 40px;
 }
-.searchInput i {
+.supportSearchInput i {
   position: absolute;
   top: 5px;
   left: 10px;
