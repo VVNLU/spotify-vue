@@ -266,7 +266,7 @@ form {
 .showWords {
   font-size: 14px;
 }
-.chooseGender input {
+.chooseGender > input {
   margin: 0 10px;
 }
 .container {
