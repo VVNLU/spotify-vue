@@ -3,9 +3,6 @@
     <RouterView />
   </template>
   <template v-else>
-    <header class="header">
-      <HomeNavbar />
-    </header>
     <aside class="aside">
       <Rightbar />
     </aside>
@@ -16,7 +13,6 @@
 </template>
 <script setup>
 import TheLayout from "./components/TheLayout.vue";
-import HomeNavbar from "./components/HomeNavbar.vue";
 import Rightbar from "./components/Rightbar.vue";
 import { useRoute } from "vue-router";
 
@@ -30,41 +26,27 @@ const contentPages = () => {
     "forgetpassword",
     "support",
     "profileEdit",
-    "player",
   ];
   const result = pageArray.includes(route.name);
   return result;
 };
 </script>
 <style scoped>
-* {
-  position: relative;
-  background-color: #000;
-}
-.header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 77%;
-  z-index: 1;
-}
 .aside {
+  background-color: #000;
   position: fixed;
   top: 0;
   left: 0;
-  width: 23%;
+  width: 18.5%;
   height: 100%;
+  padding: 0.5%;
 }
 .theLayout {
+  background-color: #000;
   position: fixed;
   right: 0;
-  top: 9.7%;
-  width: 77%;
+  width: 80%;
   height: 100%;
-}
-@media (max-width: 1400px) {
-  .theLayout {
-    top: 15.8%;
-  }
+  padding: 0.5%;
 }
 </style>
