@@ -37,7 +37,7 @@
           />
           <a
             id="showEye"
-            class="action-label icon"
+            class="action-label icon loginIcon"
             :class="showPassword ? 'showPassword' : '!showPassword'"
             ><i
               @click="togglePassword"
@@ -48,22 +48,23 @@
           </a>
         </div>
         <div class="rememberBtn">
-          <label for="rememberMe">
-            <a
-              id="rememberMe"
-              class="action-label icon"
-              :class="rememberAccount ? 'rememberAccount' : 'rememberAccount'"
-            >
-              <i
-                @click="toggleremember"
-                :class="
-                  rememberAccount
-                    ? 'mdi mdi-toggle-switch'
-                    : 'mdi mdi-toggle-switch-off'
-                "
-              ></i>
-              記住我</a
-            ></label
+          <a
+            id="rememberMe"
+            class="action-label icon"
+            :class="rememberAccount ? 'rememberAccount' : 'rememberAccount'"
+          >
+            <i
+              @click="toggleremember"
+              class="loginIcon"
+              :class="
+                rememberAccount
+                  ? 'mdi mdi-toggle-switch'
+                  : 'mdi mdi-toggle-switch-off'
+              "
+            ></i>
+            <span @click="toggleremember" class="rememberContext"
+              >記住我</span
+            ></a
           >
         </div>
         <button class="loginBtn" @click="login()">登入</button>
@@ -222,7 +223,7 @@ hr.style-two {
 }
 .loginInfo {
   display: flex;
-  place-items: center;
+  align-items: center;
   row-gap: 10px;
 }
 .inputTitle p {
@@ -246,7 +247,7 @@ hr.style-two {
 .inputTitle {
   position: relative;
 }
-i {
+.loginIcon {
   font-size: 30px;
   color: gray;
 }
@@ -256,11 +257,14 @@ i {
   left: 280px;
 }
 #rememberMe {
-  display: inline-flex;
+  display: flex;
   align-items: center;
 }
 .mdi-toggle-switch {
   color: #1ed760;
+}
+.rememberContext {
+  margin-left: 10px;
 }
 .loginBtn {
   align-items: center;
