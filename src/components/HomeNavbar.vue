@@ -77,7 +77,8 @@ const goAhead = () => {
 <style scoped>
 .navbar {
   display: grid;
-  height: 80px;
+  height: 10%;
+  width: 100%;
   align-content: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
@@ -85,13 +86,12 @@ const goAhead = () => {
   background-color: #121212;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  margin: 10px 10px 0 0;
 }
 .pagingBtn {
   display: inline-flex;
   place-items: center;
-  grid-column: 1/2;
-  margin-left: 20px;
+  grid-column: 1/1;
+  margin-left: 10px;
 }
 .pagingBtn i {
   display: inline-flex;
@@ -99,21 +99,24 @@ const goAhead = () => {
   background-color: #0a0a0a;
   border-radius: 50px;
   padding: 2px;
+  font-size: 30px;
 }
 .searchBar {
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   background-color: transparent;
+  height: 100%;
 }
 .searchBar i {
   position: absolute;
   color: white;
   left: 40px;
+  font-size: 25px;
 }
 .searchInput {
-  width: 360px;
-  height: 45px;
+  width: 100%;
+  height: 80%;
   border: #242424 1px solid;
   border-radius: 50px;
   text-indent: 40px;
@@ -137,7 +140,7 @@ a,
   align-items: center;
   text-decoration: none;
   color: gray;
-  margin: 5px;
+  margin: 0 5px;
 }
 .pagingBtn a:hover,
 .routerBar:hover {
@@ -145,9 +148,9 @@ a,
   transform: scale(1.05);
 }
 .routerBtn {
-  width: 95px;
-  height: 50px;
-  margin: 20px;
+  width: 90px;
+  height: 40px;
+  margin: 0 20px;
   font-size: 16px;
   font-weight: bold;
   border-radius: 50px;
