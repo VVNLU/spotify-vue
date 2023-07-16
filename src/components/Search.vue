@@ -1,4 +1,5 @@
 <template>
+  <HomeNavbar />
   <div class="searchBar">
     <div class="browseAll">瀏覽全部</div>
     <div class="browseBox" v-for="category in categories">
@@ -11,6 +12,7 @@
   </div>
 </template>
 <script setup>
+import HomeNavbar from "../components/HomeNavbar.vue";
 import FooterOthers from "../components/FooterOthers.vue";
 import { onMounted, ref } from "vue";
 import { getCategories } from "../api/spotify";
@@ -37,9 +39,8 @@ const getGenre = (category) => {
 </script>
 <style>
 .searchBar {
-  margin-right: 10px;
   padding: 0 20px;
-  height: 89.3%;
+  height: 88%;
   overflow: auto;
   white-space: wrap;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -58,7 +59,7 @@ const getGenre = (category) => {
 }
 
 .browseAll {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
   padding: 20px 0;
 }
