@@ -3,7 +3,7 @@
     <div class="topbar">
       <div class="routerBtn homeRouter">
         <router-link to="/">
-          <a class="action-label icon">
+          <a class="action-label icon routerIcon">
             <i class="mdi mdi-home-variant-outline"></i
           ></a>
           <span class="searchTitle">首頁</span></router-link
@@ -11,17 +11,21 @@
       </div>
       <div class="routerBtn searchRouter">
         <router-link to="/search">
-          <a class="action-label icon"><i class="mdi mdi-magnify"></i></a>
+          <a class="action-label icon routerIcon"
+            ><i class="mdi mdi-magnify"></i
+          ></a>
           <span class="searchTitle">搜尋</span>
         </router-link>
       </div>
     </div>
     <div class="bottombar">
       <div class="favorMusic">
-        <a class="action-label icon">
+        <a class="action-label icon favorMusicIcon">
           <i class="mdi mdi-music-box-multiple-outline"></i></a
         ><span>你的音樂庫</span
-        ><a class="action-label icon"> <i class="mdi mdi-plus"></i></a>
+        ><a class="action-label icon favorMusicIcon">
+          <i class="mdi mdi-plus"></i
+        ></a>
       </div>
       <div class="musicboxLists">
         <div class="createlists">
@@ -61,8 +65,9 @@
 
 <style scoped>
 .sidebar {
-  height: 98%;
-  margin: 2.5%;
+  height: 100%;
+  width: 100%;
+  /* margin: 2.5%; */
   font-weight: bold;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: white;
@@ -72,32 +77,36 @@ a {
   color: grey;
 }
 .topbar {
-  position: fixed;
+  /* position: fixed; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: #121212;
   border-radius: 10px;
   height: 15%;
-  width: 22%;
+  width: 100%;
+  margin-bottom: 3%;
 }
 .routerBtn > a {
-  margin-left: 20px;
   display: flex;
   align-items: center;
+  margin: 1% 0 0 10%;
+}
+.routerIcon {
+  font-size: 30px;
 }
 .searchTitle {
   margin-left: 15px;
 }
 .bottombar {
-  position: fixed;
+  /* position: fixed; */
   display: grid;
   grid-template-rows: repeat (5 1fr);
   background-color: #121212;
   border-radius: 10px;
-  top: 18%;
-  width: 22%;
-  height: 81.5%;
+  /* top: 18%; */
+  width: 100%;
+  height: 82%;
 }
 .favorMusic {
   color: grey;
@@ -105,10 +114,13 @@ a {
   align-items: center;
   justify-content: space-around;
 }
+.favorMusicIcon {
+  font-size: 30px;
+}
 .createlists {
   background-color: #242424;
   border-radius: 10px;
-  padding: 10px 0 20px 20px;
+  padding: 10px 0 20px 10px;
   margin: 0 10px 25px 10px;
 }
 .createContent {
