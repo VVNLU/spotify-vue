@@ -81,6 +81,7 @@
         ><i class="mdi mdi-facebook"></i
       ></a>
     </div>
+    <hr class="style-one" />
     <div class="footerConnect">
       <ul>
         <li>
@@ -127,6 +128,7 @@
 
 <style scoped>
 .footer {
+  position: relative;
   height: 500px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -139,6 +141,20 @@
 }
 .container a {
   color: white;
+}
+hr.style-one {
+  position: absolute;
+  bottom: 100px;
+  width: 100%;
+  margin: 0 auto;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(235, 230, 230, 0),
+    rgba(180, 168, 168, 0.75),
+    rgba(235, 230, 230, 0)
+  );
 }
 .footerConnect a {
   color: grey;
@@ -190,6 +206,7 @@
   color: white;
   margin: 10px;
   padding: 10px 15px 10px 15px;
+  font-size: 30px;
 }
 .container li > a:hover,
 .socialMedia i:hover,
