@@ -1,4 +1,5 @@
 <template>
+  <HomeNavbar />
   <div class="genre">
     <div class="generBigTitle">{{ nameStore.names }}</div>
     <div class="genreBox" v-for="item in categoryPlaylists">
@@ -12,6 +13,7 @@
   </div>
 </template>
 <script setup>
+import HomeNavbar from "../components/HomeNavbar.vue";
 import { onMounted, ref } from "vue";
 import { getCategoryPlaylists } from "../api/spotify";
 import { useRoute } from "vue-router";
@@ -37,9 +39,8 @@ const getAlbum = (item) => {
 </script>
 <style scoped>
 .genre {
-  margin-right: 10px;
   padding: 0 20px;
-  height: 89.3%;
+  height: 88%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #121212;
   color: white;

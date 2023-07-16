@@ -1,4 +1,5 @@
 <template>
+  <HomeNavbar />
   <div class="content">
     <div class="focus">
       <div class="playlistTitle">熱門清單</div>
@@ -20,6 +21,7 @@ import { getHomeCategoryPlaylists } from "../api/spotify";
 import { ref, onMounted } from "vue";
 import router from "../router";
 import { useNameStore } from "../stores/name";
+import HomeNavbar from "./HomeNavbar.vue";
 // import { faker } from "@faker-js/faker";
 // import { getUserTopItems } from "../api/spotify";
 
@@ -75,12 +77,13 @@ onMounted(async () => {
 </script>
 <style scoped>
 .content {
-  height: 89.3%;
+  height: 88%;
+  width: 100%;
   overflow: auto;
   white-space: wrap;
   color: white;
-  margin: 0 10px 10px 0;
-  background-image: linear-gradient(to bottom, #1d1d1d 10%, #121212);
+  /* margin: 0 10px 10px 0; */
+  background-color: #121212;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -97,7 +100,8 @@ onMounted(async () => {
   margin: 10px 0 0 25px;
 }
 .playlistTitle {
-  font-size: 24px;
+  font-size: 38px;
+  font-weight: bold;
 }
 .musicBox {
   position: relative;
