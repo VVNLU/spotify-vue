@@ -11,7 +11,7 @@ import HomeContent from "../components/HomeContent.vue";
 import HomeAlbum from "../components/HomeAlbum.vue";
 import Search from "../components/Search.vue";
 import Genre from "../components/Genre.vue";
-import Player from "../components/Player.vue";
+import Collection from "../components/Collection.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -73,9 +73,9 @@ const router = createRouter({
       component: Genre,
     },
     {
-      path: "/player",
-      name: "player",
-      component: Player,
+      path: "/collection",
+      name: "collection",
+      component: Collection,
     },
   ],
 });
