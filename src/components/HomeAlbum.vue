@@ -1,4 +1,5 @@
 <template>
+  <HomeNavbar />
   <div class="albums">
     <div class="musicalbum">
       <img :src="nameStore.image" />
@@ -24,6 +25,7 @@
       <audio :src="currentMusic" controls autoplay></audio>
     </div>
     <div class="musicGroups">
+      <!-- <Player :currentPlay="url" /> -->
       <table>
         <thead>
           <tr>
@@ -76,32 +78,49 @@
   </div>
 </template>
 <script setup>
+import HomeNavbar from "../components/HomeNavbar.vue";
 import { getPlaylistItems } from "../api/spotify";
 import { onMounted, ref } from "vue";
 import { dateToRelative } from "../utils/date";
 import { useRoute } from "vue-router";
 import { useNameStore } from "../stores/name";
+// import { usePlayStore } from "../stores/play";
+import router from "../router";
+// import Player from "./Player.vue";
 
 const nameStore = useNameStore();
+// const playStore = usePlayStore();
 const route = useRoute();
 const playlistItems = ref([]);
+const url = ref();
+
 const currentMusic = ref();
 
 const setCurrentMusic = (url) => {
   currentMusic.value = url;
 };
+
 onMounted(async () => {
   const response = await getPlaylistItems(route.params.id);
   console.log(response.items);
   playlistItems.value = response.items;
 });
+
+// const getPlayer = (item) => {
+//   playStore.isPlayingName = item.track.artists[0].name;
+//   playStore.isPlayingSong = item.track.name;
+//   playStore.isPlayingImg = item.track.album.images[2].url;
+//   playStore.previewUrl = item.track.preview_url;
+//   url.value = item.track.preview_url;
+//   console.log(playStore.previewUrl);
+//   // router.replace({ name: "player", params: { id: item.track.id } });
+// };
 </script>
 <style scoped>
 .albums {
-  height: 89.3%;
+  height: 88%;
   overflow: auto;
   white-space: wrap;
-  margin-right: 10px;
   background: #121212;
   color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
