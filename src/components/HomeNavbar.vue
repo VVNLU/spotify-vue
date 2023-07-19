@@ -19,8 +19,8 @@
       />
     </div>
     <div class="connect">
-      <router-link to="premium" class="routerBar">Premium</router-link>
-      <router-link to="support" class="routerBar">支援</router-link>
+      <router-link to="/premium" class="routerBar">Premium</router-link>
+      <router-link to="/support" class="routerBar">支援</router-link>
       <router-link to="" class="routerBar">下載</router-link>
       <span>｜</span>
       <div class="loggedIn" v-if="isLogin()">
@@ -30,7 +30,7 @@
         <button class="routerBtn" @click="isLogout">登出</button>
       </div>
       <div class="unlogin" v-else>
-        <router-link to="register">註冊</router-link>
+        <router-link to="/register">註冊</router-link>
         <button class="routerBtn" @click="btn">登入</button>
       </div>
     </div>
