@@ -211,6 +211,7 @@ console.log(isName());
 }
 .supportSearchInput i {
   position: absolute;
+  font-size: 30px;
   top: 5px;
   left: 10px;
   color: #5e5e5e;
