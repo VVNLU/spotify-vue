@@ -1,11 +1,13 @@
 <template>
-  <div class="musicPlayer" v-for="track in musicTracks">
+  <div class="musicPlayer">
     <div class="playerLeft">
-      <img :src="track.track.album.images[2].url" class="currentPic" />
+      {{ playStore.previewUrl }}
+      <audio :src="playStore.previewUrl"></audio>
+      <img :src="playStore.isPlayingImg" class="currentPic" />
       <div class="currentInfo"></div>
       <div class="currentInfo">
-        <span class="currentSong">{{ track.album.name }}</span>
-        <span class="currentSinger">Maroon5</span>
+        <span class="currentSong">{{ playStore.isPlayingSong }}</span>
+        <span class="currentSinger">{{ playStore.isPlayingName }}</span>
       </div>
       <div class="currentFavor">
         <a class="action-label icon"><i class="mdi mdi-heart-outline"></i></a>
@@ -20,11 +22,15 @@
           ><i class="mdi mdi-skip-previous skip"></i
         ></a>
         <a class="action-label icon"
-          ><i class="mdi mdi-play-circle play"></i
+          ><i
+            @click="toggleIsPlaying"
+            :class="
+              isPlaying
+                ? 'mdi mdi-pause-circle pause'
+                : 'mdi mdi-play-circle play'
+            "
+          ></i
         ></a>
-        <!-- <a class="action-label icon"
-          ><i class="mdi mdi-pause-circle pause"></i
-        ></a> -->
         <a class="action-label icon"><i class="mdi mdi-skip-next skip"></i></a>
         <a class="action-label icon swap"
           ><i class="mdi mdi-swap-horizontal-variant swap"></i
@@ -52,15 +58,38 @@
   </div>
 </template>
 <script setup>
-import { getPlaylistItems } from "../api/spotify";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, toRefs } from "vue";
+import { useRoute } from "vue-router";
+import { usePlayStore } from "../stores/play";
 
-const musicTracks = ref([]);
+const props = defineProps(["currentPlay"]);
+const playStore = usePlayStore();
+const isPlaying = ref(false);
+const route = useRoute();
 
-onMounted(async () => {
-  const response = await getPlaylistItems();
-  musicTracks.value = response.items;
-});
+// const { currentPlay } = toRefs(props.currentPlay);
+
+// onMounted(() => {
+//   playAudio();
+// });
+
+const playAudio = () => {
+  const audio = new Audio(props.currentPlay);
+  // console.log(audio);
+  audio.play();
+  return audio;
+};
+console.log(playAudio());
+
+const toggleIsPlaying = () => {
+  isPlaying.value = !isPlaying.value;
+  if (isPlaying) {
+    audio.play();
+  } else {
+    audio.pause();
+  }
+  // const playAudio = audio.pause();
+};
 </script>
 <style scoped>
 .musicPlayer {
@@ -75,7 +104,7 @@ onMounted(async () => {
   align-items: center;
 }
 .currentPic {
-  height: 70px;
+  height: 62px;
   border-radius: 5px;
 }
 .currentInfo {

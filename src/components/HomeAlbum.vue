@@ -11,7 +11,7 @@
         </p>
         <div class="albumMessage">
           <img src="../assets/logo/logo_green.png" alt="" />Spotify
-          <span>．156人按讚．50首歌曲,大約25分鐘</span>
+          <span>．156人按讚．{{ playlistItems.length }}首歌曲,大約25分鐘</span>
         </div>
       </div>
     </div>
@@ -22,10 +22,10 @@
       <a class="action-label icon"
         ><i class="mdi mdi-heart-outline favorPlaylist"></i
       ></a>
-      <audio :src="currentMusic" controls autoplay></audio>
+      <!-- <audio :src="currentMusic" controls autoplay></audio> -->
     </div>
     <div class="musicGroups">
-      <!-- <Player :currentPlay="url" /> -->
+      <Player :currentPlay="playStore.previewUrl" />
       <table>
         <thead>
           <tr>
@@ -46,7 +46,7 @@
             class="musicList"
             v-for="(item, index) in playlistItems"
             :key="index"
-            @click="setCurrentMusic(item.track.preview_url)"
+            @click="getPlayer(item)"
           >
             <td>
               <a class="action-label icon"
@@ -84,21 +84,21 @@ import { onMounted, ref } from "vue";
 import { dateToRelative } from "../utils/date";
 import { useRoute } from "vue-router";
 import { useNameStore } from "../stores/name";
-// import { usePlayStore } from "../stores/play";
+import { usePlayStore } from "../stores/play";
 import router from "../router";
-// import Player from "./Player.vue";
+import Player from "./Player.vue";
 
 const nameStore = useNameStore();
-// const playStore = usePlayStore();
+const playStore = usePlayStore();
 const route = useRoute();
 const playlistItems = ref([]);
 const url = ref();
 
-const currentMusic = ref();
+// const currentMusic = ref();
 
-const setCurrentMusic = (url) => {
-  currentMusic.value = url;
-};
+// const setCurrentMusic = (url) => {
+//   currentMusic.value = url;
+// };
 
 onMounted(async () => {
   const response = await getPlaylistItems(route.params.id);
@@ -106,15 +106,14 @@ onMounted(async () => {
   playlistItems.value = response.items;
 });
 
-// const getPlayer = (item) => {
-//   playStore.isPlayingName = item.track.artists[0].name;
-//   playStore.isPlayingSong = item.track.name;
-//   playStore.isPlayingImg = item.track.album.images[2].url;
-//   playStore.previewUrl = item.track.preview_url;
-//   url.value = item.track.preview_url;
-//   console.log(playStore.previewUrl);
-//   // router.replace({ name: "player", params: { id: item.track.id } });
-// };
+const getPlayer = (item) => {
+  playStore.isPlayingName = item.track.artists[0].name;
+  playStore.isPlayingSong = item.track.name;
+  playStore.isPlayingImg = item.track.album.images[2].url;
+  playStore.previewUrl = item.track.preview_url;
+  url.value = item.track.preview_url;
+  // router.replace({ name: "player", params: { id: item.track.id } });
+};
 </script>
 <style scoped>
 .albums {
