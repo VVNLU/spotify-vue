@@ -1,8 +1,6 @@
 <template>
   <div class="musicPlayer">
     <div class="playerLeft">
-      {{ playStore.previewUrl }}
-      <audio :src="playStore.previewUrl"></audio>
       <img :src="playStore.isPlayingImg" class="currentPic" />
       <div class="currentInfo"></div>
       <div class="currentInfo">
@@ -23,11 +21,11 @@
         ></a>
         <a class="action-label icon"
           ><i
-            @click="toggleIsPlaying"
+            @click="toggleIsPlaying()"
             :class="
               isPlaying
-                ? 'mdi mdi-pause-circle pause'
-                : 'mdi mdi-play-circle play'
+                ? 'mdi mdi-play-circle play'
+                : 'mdi mdi-pause-circle pause'
             "
           ></i
         ></a>
@@ -58,38 +56,34 @@
   </div>
 </template>
 <script setup>
-import { onMounted, ref, toRefs } from "vue";
-import { useRoute } from "vue-router";
+import { onUpdated, ref } from "vue";
 import { usePlayStore } from "../stores/play";
 
 const props = defineProps(["currentPlay"]);
 const playStore = usePlayStore();
 const isPlaying = ref(false);
-const route = useRoute();
+const audio = new Audio();
 
-const { currentPlay } = toRefs(props);
-
-// onMounted(() => {
-//   playAudio();
-// });
+onUpdated(() => {
+  playAudio();
+});
 
 const playAudio = () => {
-  const audio = new Audio(currentPlay);
-  audio.play();
-  return audio;
-};
-console.log(playAudio());
-
-const toggleIsPlaying = () => {
-  isPlaying.value = !isPlaying.value;
-  if (isPlaying) {
-    audio.play();
+  audio.src = playStore.previewUrl;
+  if (!playStore.previewUrl) {
+    alert("可惜...此歌曲沒有試聽！");
   } else {
-    audio.pause();
+    if (!isPlaying.value) {
+      audio.play();
+    }
   }
-  // const playAudio = audio.pause();
+};
+
+const toggleIsPlaying = (e) => {
+  isPlaying.value = !isPlaying.value;
 };
 </script>
+
 <style scoped>
 .musicPlayer {
   display: flex;
