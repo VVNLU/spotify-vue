@@ -67,15 +67,14 @@ const playStore = usePlayStore();
 const isPlaying = ref(false);
 const route = useRoute();
 
-// const { currentPlay } = toRefs(props.currentPlay);
+const { currentPlay } = toRefs(props);
 
 // onMounted(() => {
 //   playAudio();
 // });
 
 const playAudio = () => {
-  const audio = new Audio(props.currentPlay);
-  // console.log(audio);
+  const audio = new Audio(currentPlay);
   audio.play();
   return audio;
 };
