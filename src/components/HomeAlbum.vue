@@ -25,7 +25,7 @@
       <!-- <audio :src="currentMusic" controls autoplay></audio> -->
     </div>
     <div class="musicGroups">
-      <Player :currentPlay="playStore.previewUrl" />
+      <!-- <Player :currentPlay="playStore.previewUrl" /> -->
       <table>
         <thead>
           <tr>
