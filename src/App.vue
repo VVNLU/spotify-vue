@@ -9,11 +9,13 @@
     <TheLayout class="theLayout">
       <RouterView />
     </TheLayout>
+    <player class="player" />
   </template>
 </template>
 <script setup>
 import TheLayout from "./components/TheLayout.vue";
 import Rightbar from "./components/Rightbar.vue";
+import Player from "./components/Player.vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
@@ -48,5 +50,10 @@ const contentPages = () => {
   width: 80%;
   height: 100%;
   padding: 0.5%;
+}
+.player {
+  position: fixed;
+  bottom: 0;
+  width: 99%;
 }
 </style>
