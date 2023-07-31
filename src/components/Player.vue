@@ -24,8 +24,8 @@
             @click="toggleIsPlaying()"
             :class="
               isPlaying
-                ? 'mdi mdi-play-circle play'
-                : 'mdi mdi-pause-circle pause'
+                ? 'mdi mdi-pause-circle pause'
+                : 'mdi mdi-play-circle play'
             "
           ></i
         ></a>
@@ -56,7 +56,7 @@
   </div>
 </template>
 <script setup>
-import { onUpdated, ref } from "vue";
+import { watch, ref } from "vue";
 import { usePlayStore } from "../stores/play";
 
 const props = defineProps(["currentPlay"]);
@@ -64,24 +64,43 @@ const playStore = usePlayStore();
 const isPlaying = ref(false);
 const audio = new Audio();
 
-onUpdated(() => {
-  playAudio();
-});
+const getPreviewUrl = () => {
+  return playStore.previewUrl;
+};
 
 const playAudio = () => {
-  audio.src = playStore.previewUrl;
   if (!playStore.previewUrl) {
     alert("可惜...此歌曲沒有試聽！");
-  } else {
-    if (!isPlaying.value) {
+    audio.src = "";
+    playStore.previewUrl = "default";
+    isPlaying.value = false;
+    return;
+  }
+
+  if (playStore.previewUrl !== "default") {
+    audio.src = playStore.previewUrl;
+    isPlaying.value = true;
+    audio.play();
+  }
+};
+
+const toggleIsPlaying = () => {
+  if (!playStore.previewUrl || playStore.previewUrl === "default") {
+    alert("可惜...此歌曲沒有試聽！");
+    return;
+  }
+
+  if (playStore.previewUrl && playStore.previewUrl !== "default") {
+    isPlaying.value = !isPlaying.value;
+    if (isPlaying.value) {
       audio.play();
+    } else {
+      audio.pause();
     }
   }
 };
 
-const toggleIsPlaying = (e) => {
-  isPlaying.value = !isPlaying.value;
-};
+watch(getPreviewUrl, playAudio, { immediate: true });
 </script>
 
 <style scoped>

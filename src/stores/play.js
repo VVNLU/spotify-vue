@@ -6,7 +6,7 @@ export const usePlayStore = defineStore("play", () => {
   const isPlayingSong = ref("");
   const isPlayingImg = ref("");
   const tracks = ref("");
-  const previewUrl = ref("");
+  const previewUrl = ref("default");
 
   return {
     isPlayingName,
