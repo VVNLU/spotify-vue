@@ -119,7 +119,7 @@ const login = async () => {
     const getSpotifyToken = await getAccessToken();
     localStorage.setItem("firebaseToken", user.accessToken);
     localStorage.setItem("username", user.displayName);
-    console.log(user);
+    // console.log(user);
     router.replace("/");
   } catch (e) {
     alert("您尚未註冊或帳號密碼有誤");
