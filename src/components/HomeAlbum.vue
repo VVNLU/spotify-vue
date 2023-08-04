@@ -46,7 +46,6 @@
             class="musicList"
             v-for="(item, index) in playlistItems"
             :key="index"
-            @click="setCurrentMusic(item.track.preview_url)"
           >
             <td>
               <a class="action-label icon"
@@ -54,7 +53,10 @@
               ></a>
               <p class="musicListIndex">{{ index + 1 }}</p>
             </td>
-            <td class="musicInfo">
+            <td
+              class="musicInfo"
+              @click="setCurrentMusic(item.track.preview_url)"
+            >
               <img :src="item.track?.album?.images[2]?.url" />
               <div class="musicName">
                 {{ item.track?.name }}<br />
@@ -66,9 +68,11 @@
             <td>{{ item.track?.album.name }}</td>
             <td>{{ dateToRelative(item.added_at) }}</td>
             <td>
-              <a class="action-label icon"
-                ><i class="mdi mdi-heart-outline favor"></i
-              ></a>
+              <TheFavorIcon
+                :isFavor="isFavorMusic"
+                :trackID="item.track.id"
+                class="favorIcon"
+              />
             </td>
             <td>0:30</td>
           </tr>
@@ -79,6 +83,7 @@
 </template>
 <script setup>
 import HomeNavbar from "../components/HomeNavbar.vue";
+import TheFavorIcon from "../components/TheFavorIcon.vue";
 import { getPlaylistItems } from "../api/spotify";
 import { onMounted, ref } from "vue";
 import { dateToRelative } from "../utils/date";
@@ -93,7 +98,7 @@ const nameStore = useNameStore();
 const route = useRoute();
 const playlistItems = ref([]);
 const url = ref();
-
+const isFavorMusic = ref(false);
 const currentMusic = ref();
 
 const setCurrentMusic = (url) => {
@@ -233,12 +238,10 @@ td {
   margin-right: 20px;
   width: 40px;
 }
-.showPlayer,
-.favor {
+.showPlayer {
   display: none;
 }
-.musicList:hover .showPlayer,
-.musicList:hover .favor {
+.musicList:hover .showPlayer {
   display: block;
   font-size: 20px;
   text-align: center;
